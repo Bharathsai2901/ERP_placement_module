@@ -1,0 +1,71 @@
+body{
+    background-color:white;
+    margin:0;
+}
+
+.box{
+    border: 2.5px solid #89CFFD;
+    width:40%;
+    margin:auto;
+    margin-top:50px;
+    background-color: #FFFFFF;
+}
+
+.header{
+    background-color: #89CFFD;
+    margin-top : 0px;
+    padding:10px;
+    text-align:center;
+}
+
+.form{
+    margin:10px;
+    text-align: center;
+}
+
+.input{
+    padding:10px;
+    border-radius:5px;
+    margin:15px;
+    border-color: #F1F1F1;
+    box-shadow: none;
+}
+
+.button{
+    padding:5px;
+    margin:15px 15px 0 15px;
+    background-color: #0b52b5;
+    border-color: #0b52b5;
+    color:white;
+}
+
+.button:hover{
+    background-color: #0dc8f2;
+    cursor: pointer;
+    border-color: #0dc8f2;
+}
+
+#forgot-pass{
+    color: #1815ce;
+}
+
+.login-button{
+    padding: 10px;
+    margin: 2.5% 34%;
+    width: 32%;
+    text-align: center;
+    background-color: #0b52b5;
+    border-color: #0b52b5;
+    color:white;
+}
+
+.login-button:hover{
+    background-color: #0dc8f2;
+    cursor: pointer;
+    border-color: #0dc8f2;
+}
+
+.Login-menu{
+    margin-bottom:20px;
+    margin-top:20px;
+}
