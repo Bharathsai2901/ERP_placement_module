@@ -65,6 +65,20 @@ body{
     border-color: #0dc8f2;
 }
 
+.job-button{
+    padding: 10px;
+    margin: 2.5% 34%;
+    width: 32%;
+    text-align: center;
+    background-color: #0b52b5;
+    border-color: #0b52b5;
+    color:white;
+}
+.job-button:hover{
+    background-color: #0dc8f2;
+    cursor: pointer;
+    border-color: #0dc8f2;
+}
 .Login-menu{
     margin-bottom:20px;
     margin-top:20px;
