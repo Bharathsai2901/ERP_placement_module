@@ -22,9 +22,10 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" class="navmenu">
           <Nav className="me-auto" >
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Apply</Nav.Link>
-            <NavDropdown title="Refernces" id="basic-nav-dropdown">
+            <Nav.Link href="#home" className="navitems">Home</Nav.Link>
+            <Nav.Link href="https://rsoftiittp.herokuapp.com/" target="_blank" className="navitems">Generate Resume</Nav.Link>
+            <Nav.Link href="#link" className="navitems">Apply</Nav.Link>
+            <NavDropdown title="References" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Previous year stats</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Experiences

@@ -1,5 +1,6 @@
 .card{
     margin:40px;
+    --bs-card-border-width:0;
 }
 
 .row{
@@ -126,3 +127,13 @@ li {
     transition-timing-function: cubic-bezier(.5,1.6,.4,.7);
     transform: scaleX(0);
 }
+
+.zoom{
+    transition: transform .3s;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.03); /* IE 9 */
+    -webkit-transform: scale(1.03); /* Safari 3-8 */
+    transform: scale(1.03); 
+  }

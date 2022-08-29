@@ -4,11 +4,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from 'react-bootstrap/Button';
 import "../styles/card.css";
+import { Outlet, Link } from "react-router-dom";
 
 export default function Card(){
     return( 
         <div className="col-lg-4 col-md-6 col-sm-6">
-          <div className="card-div">
+          <div className="card-div zoom">
             <div className="col">
               <span className="Sector">Programming & IT</span>
               <h5>

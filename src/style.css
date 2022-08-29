@@ -3,6 +3,10 @@ body{
     margin:0;
 }
 
+.buttona{
+    text-decoration:none;
+    color:white;
+}
 .box{
     border: 2.5px solid #89CFFD;
     width:40%;

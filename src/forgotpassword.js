@@ -1,7 +1,6 @@
 
 import React from 'react';
 import "./style.css";
-import "./home_style.css";
 
 export default function App(){
     return(
@@ -13,7 +12,7 @@ export default function App(){
             <form className="form">
                 <input className="input" type="text" placeholder="Enter Username" /><br />
                 <input className="input" type="text" placeholder="Enter Password" /><br />
-                <span><button className="button"><a href="/studenthome" className="buttona">Login</a></button></span>
+                <span><button className="button">Login</button></span>
                 <span><button className="button">Reset</button></span>
                 <h5 id="forgot-pass">Student corner</h5>
             </form>
