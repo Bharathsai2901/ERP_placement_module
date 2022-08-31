@@ -24,7 +24,6 @@ function BasicExample() {
           <Nav className="me-auto" >
             <Nav.Link href="#home" className="navitems">Home</Nav.Link>
             <Nav.Link href="https://rsoftiittp.herokuapp.com/" target="_blank" className="navitems">Generate Resume</Nav.Link>
-            <Nav.Link href="#link" className="navitems">Apply</Nav.Link>
             <NavDropdown title="References" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Previous year stats</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -32,6 +31,7 @@ function BasicExample() {
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Mock tests</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="#link" className="navitems">Profil</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
