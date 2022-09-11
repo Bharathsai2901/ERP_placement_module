@@ -26,7 +26,7 @@ export default function Login() {
               <div className="pass-link">
                 <a href="/forgotpassword">Forgot password?</a>
               </div>
-            </div>
+            </div> 
             <div className="field">
             <Link to="/Student-home"><input type="submit" value="Login" /></Link>
             </div>
