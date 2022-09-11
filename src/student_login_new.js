@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/student_login_new.css";
+import "./styles/student_login_new.css"; 
 import { Outlet, Link } from "react-router-dom";
 
 
