@@ -46,4 +46,8 @@ export default function Card() {
       <Outlet />
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0242d3c231d5023d4d8a4529352f34f6bb5a6a18
