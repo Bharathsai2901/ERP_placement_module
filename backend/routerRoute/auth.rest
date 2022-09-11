@@ -1,0 +1,36 @@
+POST http://localhost:3004/register
+Content-Type:application/json
+
+{
+  "Name":"SampathK", 
+  "Email":"student1234@gmail.com", 
+  "PhoneNo":"9876543211",
+  "Profession":"Dcotor", 
+  "password":"test2@gmail.com", 
+  "cPassword":"test2@gmail.com"
+} 
+### 
+
+POST http://localhost:3006/login
+Content-Type:application/json 
+
+{
+  "Email":"test123@gmail.com", 
+  "password":"abcd@12"
+}
+
+### 
+
+GET http://localhost:3006/about 
+### 
+
+POST http://localhost:3006/uploadResume
+Content-Type:"application/json"
+Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzBlNTczODQxYWQ1NTJkNDlhMzk0MjUiLCJpYXQiOjE2NjI4OTAxMTB9.hCFqto2bm8uyeybspj4FYTkebUifAQRBC-d-0QpjW2M"
+
+{
+  "availability":"20 hours", 
+  "internships":"this is my first one", 
+  "workDone":"Sufficient work required for the job"
+}
+

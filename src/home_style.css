@@ -17,5 +17,7 @@ body{
 
 .Navbar{
     /*background-color: rgb(151, 230, 250);*/
+    font-style: overpass;
     box-shadow: 0 2px 25px 0 rgb(54 66 117 / 12%);
 }
+
