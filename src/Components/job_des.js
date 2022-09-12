@@ -1,14 +1,8 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import "../styles/job_des.css";
-<<<<<<< HEAD
 import { Outlet, Link } from "react-router-dom";
 
-=======
-import Form from "./form"
-import { render } from "react-dom";
-import { Outlet, Link } from "react-router-dom";
->>>>>>> 0242d3c231d5023d4d8a4529352f34f6bb5a6a18
 export default function desc() {
   return (
     <div>
@@ -119,19 +113,11 @@ export default function desc() {
                 </ul>
                 <div className="apply-btn2">
                   <div className="Button-div">
-<<<<<<< HEAD
                   <Link to = "/Form">
                       <Button className="Apply-button" variant="primary">
                         Apply Now
                       </Button>
                     </Link>{" "}
-=======
-                    <Link to = "/Form">
-                      <Button className="Apply-button" variant="primary">
-                        Apply Now
-                      </Button>
-                    </Link>
->>>>>>> 0242d3c231d5023d4d8a4529352f34f6bb5a6a18
                   </div>
                 </div>
               </div>
@@ -165,8 +151,4 @@ export default function desc() {
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0242d3c231d5023d4d8a4529352f34f6bb5a6a18

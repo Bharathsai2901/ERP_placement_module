@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-import "./styles/student_login_new.css"; 
-=======
 import "./styles/student_login_new.css";
-<<<<<<< HEAD
 import { useState} from "react"
 import {useNavigate} from "react-router-dom"
 
@@ -70,18 +66,10 @@ export default function Login() {
     return "LogIn"
   }
   
-=======
->>>>>>> 9a3a0c38dbd8a04da38121042a448c92fd1f64eb
-import { Outlet, Link } from "react-router-dom";
-
-
-export default function Login() {
->>>>>>> 0242d3c231d5023d4d8a4529352f34f6bb5a6a18
   return (
     <div>
       <div className="wrapper">
         <div>
-<<<<<<< HEAD
           <div className="title">Student Login</div>
           <form action="#">
             <div className="field">
@@ -90,16 +78,6 @@ export default function Login() {
             </div>
             <div className="field">
               <input type="password" onChange = {handleInput} name = "password" value = {user.password} required />
-=======
-          <div className="title">Student Login </div>
-          <form action="#">
-            <div className="field">
-              <input type="text" required />
-              <label>Email Address</label>
-            </div>
-            <div className="field">
-              <input type="password" required />
->>>>>>> 0242d3c231d5023d4d8a4529352f34f6bb5a6a18
               <label>Password</label>
             </div>
             <div className="content">
@@ -108,7 +86,6 @@ export default function Login() {
                 <label for="remember-me">Remember me</label>
               </div>
               <div className="pass-link">
-<<<<<<< HEAD
                 <a href="#">Forgot password?</a>
               </div>
             </div>
@@ -117,13 +94,6 @@ export default function Login() {
             </div>
             <div className="field">
               <button className = "btn btn-primary w-100" onClick = {logIn}>{spinner()}</button>
-=======
-                <a href="/forgotpassword">Forgot password?</a>
-              </div>
-            </div> 
-            <div className="field">
-            <Link to="/Student-home"><input type="submit" value="Login" /></Link>
->>>>>>> 0242d3c231d5023d4d8a4529352f34f6bb5a6a18
             </div>
             {/* <div className="signup-link">
               Not a member? <a href="#">Signup now</a>
@@ -131,13 +101,6 @@ export default function Login() {
           </form>
         </div>
       </div>
-<<<<<<< HEAD
     </div>
   );
 }
-=======
-      <Outlet />
-    </div>
-  );
-}
->>>>>>> 0242d3c231d5023d4d8a4529352f34f6bb5a6a18
