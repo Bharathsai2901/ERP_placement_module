@@ -1,13 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import "../styles/job_des.css";
 import { Outlet, Link } from "react-router-dom";
-
+import "../styles/job_des.css";
 export default function desc() {
   return (
     <div>
       <div className="job-post-company pt-120 pb-120">
-        <div className="container">
+        <div className="container body-box">
           <div className="row justify-content-between">
             <div className="col-xl-7 col-lg-8 div-card">
               <div className="single-job-items mb-50">
@@ -113,11 +112,9 @@ export default function desc() {
                 </ul>
                 <div className="apply-btn2">
                   <div className="Button-div">
-                  <Link to = "/Form">
-                      <Button className="Apply-button" variant="primary">
-                        Apply Now
-                      </Button>
-                    </Link>{" "}
+                    <Button href="/apply" className="Apply-button" variant="primary">
+                      Apply Now
+                    </Button>{" "}
                   </div>
                 </div>
               </div>

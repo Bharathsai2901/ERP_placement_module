@@ -22,7 +22,9 @@ export default function App() {
           </form>
           <form action="http://programminghead.com" className="form">
             <div className="field lastform">
+            <Link to="/Company-login">
               <input type="submit" value="Company Login" />
+            </Link>
             </div>
           </form>
         </div>

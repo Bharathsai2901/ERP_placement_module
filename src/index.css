@@ -1,3 +1,7 @@
-.indexdiv{
-    width: 100%;
+#root{
+    width: 687px;
+}
+
+html,body{
+    display:none;
 }

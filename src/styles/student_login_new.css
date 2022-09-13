@@ -6,8 +6,8 @@
   font-family: 'Poppins', sans-serif;
 }
 html,body{
-  display: grid;
-  height: 100%;
+   /* display: grid; */
+  /* height: 100%; */
   width: 100%;
   place-items: center;
   background: #f2f2f2;
@@ -19,6 +19,7 @@ html,body{
   color: #fff;
 }
 .wrapper{
+  margin:auto;
   width: 380px;
   background: #fff;
   border-radius: 15px;

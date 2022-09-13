@@ -10,7 +10,7 @@ function BasicExample() {
   return (
     <Navbar  expand="lg" className="Navbar">
       <Container>
-      <Navbar.Brand href="/student-home">
+      <Navbar.Brand href="/company-home">
             <img 
               src="https://upload.wikimedia.org/wikipedia/en/b/b0/Indian_Institute_of_Technology_Tirupati_Logo.svg"
               width="60"
@@ -23,19 +23,9 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" class="navmenu">
           <Nav className="me-auto" >
-            <Nav.Link href="/student-home" className="navitems">Home</Nav.Link>
-            <Nav.Link href="https://rsoftiittp.herokuapp.com/" target="_blank" className="navitems">Generate Resume</Nav.Link>
-            <NavDropdown href="/student-home" title="References" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Previous year stats</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Experiences
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Mock tests</NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown href="/student-home" title="Account" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/Profile" className="navitems">Profile</NavDropdown.Item>
-            <NavDropdown.Item href="/" className="navitems">Logout</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="/company-home" className="navitems">Home</Nav.Link>
+            <Nav.Link href="/Add-job"  className="navitems">Add new job</Nav.Link>
+            <Nav.Link href="/review-app"  className="navitems">Review Applications</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

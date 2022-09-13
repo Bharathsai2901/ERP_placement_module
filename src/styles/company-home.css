@@ -1,0 +1,7 @@
+.Apply-button::before{
+    background: #0c66c7;
+    transition: transform .5s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(.5,1.6,.4,.7);
+    transform: scaleX(0);
+}
