@@ -5,18 +5,17 @@ const router = express.Router()
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
-
 require("../db/connection")
 const User = require("../connectionSchema/schema")
 const Company = require("../connectionSchema/companySchema")
-
+ 
 const authUserLogin = async (req, res, next)=>{
   
   try{
     const token = req.cookies.jwtoken 
-    const id = jwt.verify(token, process.env.SECRETKEY)
+    const verifyUser = jwt.verify(token, process.env.SECRETKEY)
     
-    const rootUser = User.findOne({_id:id._id, "tokens.token":token})
+    const rootUser = await User.findOne({_id:verifyUser._id})
     req.rootUser = rootUser
   }
   catch(err){
@@ -26,9 +25,6 @@ const authUserLogin = async (req, res, next)=>{
   next()
 }
 
-router.post("/uploadResume", authUserLogin, async (req, res)=>{
-  console.log(req.rootUser)
-})
 
 router.get("/", (request, response)=>{
   response.send("This is response from router")

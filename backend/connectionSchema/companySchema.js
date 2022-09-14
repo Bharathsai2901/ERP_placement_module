@@ -10,19 +10,21 @@ const userSchema = new mongoose.Schema({
     type:String, 
     require:true
   },
-  available:{
+  availability:{
     type:String, 
     require:true
   },
-  assessment:{
-    internships:{
-      type:String, 
-      require:true
-    }, 
-    workDone:{
-      type:String, 
-      require:true
-    }
+  internships:{
+    type:String, 
+    require:true
+  }, 
+  workDone:{
+    type:String, 
+    require:true
+  }, 
+  resume: {
+    data: Buffer,
+    contentType: String,
   }
 })
 

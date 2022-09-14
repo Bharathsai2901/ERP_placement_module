@@ -17,4 +17,4 @@ db.once('open', function(){
   console.log("Connection Successful")
 })
 
-mongoose.companyDeyails = mongoose.createConnection(COMPANYDATABASE, options)
+mongoose.createConnection(COMPANYDATABASE, options)
