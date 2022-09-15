@@ -30,9 +30,6 @@ export default function Login() {
             <div className="field">
             <Link to="/Staff-home"><input type="submit" value="Login" /></Link>
             </div>
-            {/* <div className="signup-link">
-              Not a member? <a href="#">Signup now</a>
-            </div> */}
           </form>
         </div>
       </div>
