@@ -26,8 +26,8 @@ function BasicExample() {
             <Nav.Link href="/student-home" className="navitems">Home</Nav.Link>
             <Nav.Link href="https://rsoftiittp.herokuapp.com/" target="_blank" className="navitems">Generate Resume</Nav.Link>
             <NavDropdown href="/student-home" title="References" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Previous year stats</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="https://cdc.iittp.ac.in/images/iit/IITT%20CDC%20Annual%20Report-2021-2022.pdf" target="_blank">Previous year stats</NavDropdown.Item>
+              <NavDropdown.Item href="https://udaaniitt.in/">
                 Experiences
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Mock tests</NavDropdown.Item>

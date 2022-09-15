@@ -9,7 +9,7 @@ import Dash from "./dashboard";
 import Student from "./student_login_new"
 // import Student from "./student_login";
 import Jobdes from "./Components/job_des"
-import Login from "./Components/login_new";
+import Login from "./Components/login_erp";
 import About from "./Components/about";
 import Profile from "./Components/profile"
 import Company from "./Components/Company-home"

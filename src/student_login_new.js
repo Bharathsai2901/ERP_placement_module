@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/student_login_new.css";
+import "./styles/login_erp.css";
 import { useState} from "react"
 import {useNavigate} from "react-router-dom"
 
@@ -69,8 +70,11 @@ export default function Login() {
   return (
     <div>
       <div className="wrapper">
-        <div>
-          <div className="title">Student Login</div>
+        <div className="wrap">
+          {/* <div className="title">Student Login</div> */}
+          <div class="logo fadeIn animated"><img className="Logo" src="https://iittp.plumerp.co.in/prod/iittirupati/res/images/iittirupati-logo.png"  /></div>
+          {/* <div class="welcome "> Welcome to IIT Tirupati E-Governance</div> */}
+          <div class="welcome "> Welcome to Student login</div>
           <form action="#">
             <div className="field">
               <input type="text" onChange = {handleInput} name = "Email" value = {user.Email} required />
