@@ -10,21 +10,21 @@ export default function App() {
       <div className="wrapper wrapper1">
         <div>
           <div className="title">IIT Tirupati ERP</div>
-          <form action="http://programminghead.com" className="form">
+          <form action="#" className="form">
             <div className="field">
               <Link to="/Student-login">
                 <input type="submit" value="Student Login" />
               </Link>
             </div>
           </form>
-          <form action="http://programminghead.com" className="form">
+          <form action="#" className="form">
             <div className="field">
               <Link to="/Staff-Login">
                 <input type="submit" value="Staff Login" />
               </Link>
             </div>
           </form>
-          <form action="http://programminghead.com" className="form">
+          <form action="#" className="form">
             <div className="field lastform">
             <Link to="/Company-login">
               <input type="submit" value="Company Login" />

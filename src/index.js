@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
  import Navbar from "./Components/navbar.js";
 // import Card from "./Components/card";
 import SH from "./Components/student_home"
-import Forgot from "./student_login";
+import Forgot from "./forgotpassword";
 import Dash from "./dashboard";
 import Student from "./student_login_new"
 import Staff from "./Staff_login"
@@ -29,13 +29,14 @@ export default function App() {
     <div>
       <BrowserRouter>
       <Routes>
-         <Route path="/" element={<Login/>} />
+        <Route path="/" element={<Login/>} />
         <Route path="/Student-login" element={<Student/>} />
+        <Route path="/forgotpassword" element={<Forgot/>} />
         <Route path="/Student-home" element={<SH/>} />
         <Route path="/Job-description" element={<div><Navbar/><Jobdes/></div>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/Add-job" element={<AddJob/>} />
-         <Route path="/Apply" element={<div><Navbar/><Apply/></div>} /> 
+        <Route path="/Apply" element={<div><Navbar/><Apply/></div>} /> 
       </Routes>
       <Routes>
         <Route path="/Staff-login" element={<Staff/>} />
