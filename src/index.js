@@ -30,7 +30,6 @@ export default function App() {
       <Routes>
          <Route path="/" element={<Login/>} />
         <Route path="/Student-login" element={<Student/>} />
-        <Route path="/Company-login" element={<Company/>} />
         <Route path="/Student-home" element={<SH/>} />
         <Route path="/Job-description" element={<div><Navbar/><Jobdes/></div>} />
         <Route path="/profile" element={<Profile/>} />
@@ -44,14 +43,6 @@ export default function App() {
         <Route path="/Company-login" element={<CompanyL/>} />
         <Route path="/Company-home" element={<Company/>}/>
       </Routes>
-          {/* <Student/>  */}
-           {/* <Login />  */}
-
-       {/* <Student/>  */}
-
-        {/* <Navbar/> */}
-         {/* <Card/>  */}
-        {/* <Jobdes/>   */}
         </BrowserRouter>
 
     </div>

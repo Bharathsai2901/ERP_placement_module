@@ -28,7 +28,7 @@ export default function Login() {
               </div>
             </div>
             <div className="field">
-            <Link to="/Company_home"><input type="submit" value="Login" /></Link>
+            <Link to="/Company-home"><input type="submit" value="Login" /></Link>
             </div>
             {/* <div className="signup-link">
               Not a member? <a href="#">Signup now</a>
