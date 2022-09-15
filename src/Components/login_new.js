@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/student_login_new.css";
+import "../styles/Staff_login.css";
+import "../styles/Company_login.css";
 import { Outlet, Link } from "react-router-dom";
 
 export default function App() {
@@ -17,7 +19,9 @@ export default function App() {
           </form>
           <form action="http://programminghead.com" className="form">
             <div className="field">
-              <input type="submit" value="Staff Login" />
+              <Link to="/Staff-Login">
+                <input type="submit" value="Staff Login" />
+              </Link>
             </div>
           </form>
           <form action="http://programminghead.com" className="form">
