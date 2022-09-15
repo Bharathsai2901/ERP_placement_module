@@ -1,13 +1,12 @@
 import React from 'react';
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Navbar from "./company-nav"
-// import Avatar from 'react-avatar';
+import  { useEffect, useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/profile.css"
+import { Card, Row, Col, Container } from "react-bootstrap";
 
 export default function Profile(){
+
     return(
         <div>
             <Navbar/>

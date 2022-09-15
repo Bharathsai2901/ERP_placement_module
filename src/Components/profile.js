@@ -1,13 +1,12 @@
-import React from 'react';
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import React, { useEffect, useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, Row, Col, Container } from "react-bootstrap";
 import Navbar from "./navbar"
 // import Avatar from 'react-avatar';
 import "../styles/profile.css"
 
 export default function Profile(){
+
     return(
         <div>
             <Navbar/>
@@ -102,7 +101,7 @@ export default function Profile(){
                                 <label for="desc2">Description</label>
                                 <textarea id="desc2" rows="4" className="form-control" placeholder="Description ..."></textarea>
                             </div>
-                           
+
                             
                         </div>
                     </div>

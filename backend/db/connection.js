@@ -1,13 +1,15 @@
 
 const mongoose = require("mongoose")
 
-const DB = process.env.DATABASE 
+const STUDENTDB = process.env.STUDENTDATABASE 
+const COMPANYDATABASE = process.env.COMPANYDATABASE
+
 
 const options = {
   useNewUrlParser:true, 
   useUnifiedTopology:true
 }
-mongoose.connect(DB, options)
+mongoose.connect(STUDENTDB, options)
 
 const db = mongoose.connection
 db.on("error", console.error.bind(console, "connection error: "));
