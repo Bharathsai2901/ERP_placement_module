@@ -4,6 +4,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
+import { Link } from "react-router-dom";
   
 
 export default function App() {
@@ -50,7 +51,8 @@ export default function App() {
                     <Button style={{
                     Align : 'center',
                     colour :'blue',size:"small" }}>
-                    Back to home</Button>
+                    Back to home<Link to="/Company-home"></Link></Button>
+                    
                 </CardActions>
             </Card>
         </div>
