@@ -16,7 +16,8 @@ import About from "./Components/about";
 import Profile from "./Components/profile"
 import Company from "./Components/Company-home"
 import AddJob from "./Components/Add-job"
- import Apply from "./Components/apply"
+import Apply from "./Components/apply"
+import Review from "./Components/reviewapplication" 
 import Nav2 from "./Components/company-nav"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./home_style.css";
@@ -42,6 +43,7 @@ export default function App() {
       <Routes>
         <Route path="/Company-login" element={<CompanyL/>} />
         <Route path="/Company-home" element={<Company/>}/>
+        <Route path="/reviewapplication" element={<Review/>}/>
       </Routes>
         </BrowserRouter>
 

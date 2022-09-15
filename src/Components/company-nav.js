@@ -25,7 +25,7 @@ function BasicExample() {
           <Nav className="me-auto" >
             <Nav.Link href="/company-home" className="navitems">Home</Nav.Link>
             <Nav.Link href="/Add-job"  className="navitems">Add new job</Nav.Link>
-            <Nav.Link href="/review-app"  className="navitems">Review Applications</Nav.Link>
+            <Nav.Link href="/reviewapplication"  className="navitems">Review Applications</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

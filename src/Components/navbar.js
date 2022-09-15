@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "../home_style.css"
 import { Outlet, Link } from "react-router-dom";
+import { Search } from "react-bootstrap-icons";
 
 function BasicExample() {
   return (
@@ -32,7 +33,7 @@ function BasicExample() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success"><Search/></Button>
           </Form>
             <Nav.Link href="/student-home" className="navitems">Home</Nav.Link>
             <Nav.Link href="https://rsoftiittp.herokuapp.com/" target="_blank" className="navitems">Generate Resume</Nav.Link>
