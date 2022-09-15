@@ -5,18 +5,18 @@ const router = express.Router()
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
-
 require("../db/connection")
 const User = require("../connectionSchema/schema")
 const Company = require("../connectionSchema/companySchema")
-
+const JobDetails = require("../connectionSchema/jobDetails")
+ 
 const authUserLogin = async (req, res, next)=>{
   
   try{
     const token = req.cookies.jwtoken 
-    const id = jwt.verify(token, process.env.SECRETKEY)
+    const verifyUser = jwt.verify(token, process.env.SECRETKEY)
     
-    const rootUser = User.findOne({_id:id._id, "tokens.token":token})
+    const rootUser = await User.findOne({_id:verifyUser._id})
     req.rootUser = rootUser
   }
   catch(err){
@@ -25,10 +25,25 @@ const authUserLogin = async (req, res, next)=>{
   }
   next()
 }
+router.post("/uploadDetails", async (req, res)=>{
+  const {Jobtitle, Salary, Location, Type,Openings,Applybefore,Jobdescription,Skillsrequired,Whocanapply} = req.body
+  try{
+  if(!Jobtitle || !Salary || !Location || !Type|| !Openings|| !Applybefore|| !Jobdescription|| !Skillsrequired|| !Whocanapply){
+    res.status(422).json({"status":"Fill every Details"})
+  }
+  else{
+    const jobDetails = new JobDetails({Jobtitle, Salary, Location, Type,Openings,Applybefore,Jobdescription,Skillsrequired,Whocanapply})
 
-router.post("/uploadResume", authUserLogin, async (req, res)=>{
-  console.log(req.rootUser)
+    await jobDetails.save()
+    res.status(201).json({"status":"User Created Successfully!"})
+  }
+}
+catch(err){
+  console.log(err.message)
+}
+
 })
+
 
 router.get("/", (request, response)=>{
   response.send("This is response from router")

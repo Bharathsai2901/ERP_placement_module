@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,8 +6,47 @@ import Button from "react-bootstrap/Button";
 import Navbar from "./company-nav"
 // import Avatar from 'react-avatar';
 import "../styles/profile.css"
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Profile(){
+
+    const [postjob, setpostjob] = useState({
+        Jobtitle:"", 
+        Salary:"",
+        Location:"",
+        Type:"Intern",
+        Openings:"",
+        Applybefore:"",
+        Jobdescription:"",
+        Skillsrequired:"",
+        Whocanapply:""
+    })
+    const handleJobInput=(event)=>{
+        let name, value 
+        name = event.target.name
+        value = event.target.value
+
+        setpostjob({...postjob, [name]:value})
+    }
+    const Addjob = async (event) =>{
+        event.preventDefault()
+        console.log(postjob)
+
+        const res = await fetch("/uploadDetails", {
+            method:"post", 
+            headers:{
+                "Content-Type":"application/json"
+            }, 
+            body:JSON.stringify(postjob)
+        })
+        if(res.status === 201){
+            window.alert("Details have been recorded!")
+        }
+        else{
+            console.log(res.status)
+        }
+    }
+
     return(
         <div>
             <Navbar/>
@@ -23,13 +62,13 @@ export default function Profile(){
                                 <div className="col">
                                     <div className="form-group">
                                         <label for="fname">Job title</label>
-                                        <input id="fname" type="text" className="form-control" placeholder="Job title"  />
+                                        <input id="fname" type="text" className="form-control" placeholder="Job title"  name = "Jobtitle" value = {postjob.Jobtitle} onChange = {handleJobInput}/>
                                     </div>
                                 </div>
                                 <div className="col">
                                     <div className="form-group">
                                         <label for="lname">Salary</label>
-                                        <input id="lname" type="text" className="form-control" placeholder="Salary"  />
+                                        <input id="lname" type="text" className="form-control" placeholder="Salary"  name = "Salary" value = {postjob.Salary} onChange = {handleJobInput}/>
                                     </div>
                                 </div>
                             </div>
@@ -37,15 +76,15 @@ export default function Profile(){
                                 <div className="col">
                                     <div className="form-group">
                                         <label for="fname">Location</label>
-                                        <input id="fname" type="text" className="form-control" placeholder="Location"  />
+                                        <input id="fname" type="text" className="form-control" placeholder="Location" name = "Location" value = {postjob.Location} onChange = {handleJobInput} />
                                     </div>
                                 </div>
                                 <div className="col">
                                     <div className="form-group">
                                         <label for="lname" className="type">Type</label><br />
-                                        <select id="lname" className="custom-select w-auto">
-                                        <option value="Type">Full time</option>
-                                        <option value="Type">Intern</option>
+                                        <select id="lname" className="custom-select w-auto" name = "Type" value={postjob.Type} onChange = {handleJobInput} >
+                                        <option value="Full time">Full time</option>
+                                        <option value="Intern" selected>Intern</option>
                                         </select>
                                     </div>
                                 </div>
@@ -54,19 +93,19 @@ export default function Profile(){
                                 <div className="col">
                                         <div className="form-group">
                                             <label for="fname">Openings</label>
-                                            <input id="fname" type="text" className="form-control" placeholder="Openings"  />
+                                            <input id="fname" type="text" className="form-control" placeholder="Openings" name = "Openings" value = {postjob.Openings} onChange = {handleJobInput} />
                                         </div>
                                 </div>
                                 <div className="col">
                                         <div className="form-group">
                                             <label for="fname">Apply before</label>
-                                            <input id="fname" type="text" className="form-control" placeholder="Apply before"  />
+                                            <input id="fname" type="text" className="form-control" placeholder="Apply before" name = "Applybefore" value = {postjob.Applybefore} onChange = {handleJobInput} />
                                         </div>
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label for="desc">Job Description</label>
-                                <textarea id="desc" rows="4" className="form-control" placeholder="Job description"></textarea>
+                                <textarea id="desc" rows="4" className="form-control" placeholder="Job description" name = "Jobdescription" value = {postjob.Jobdescription} onChange = {handleJobInput} ></textarea>
                             </div>
                             
                             
@@ -98,11 +137,11 @@ export default function Profile(){
                             </div>
                             <div className="form-group">
                                 <label for="desc2">Skills Required</label>
-                                <textarea id="desc2" rows="4" className="form-control" placeholder="Skills required"></textarea>
+                                <textarea id="desc2" rows="4" className="form-control" placeholder="Skills required" name = "Skillsrequired" value = {postjob.Skillsrequired} onChange = {handleJobInput} ></textarea>
                             </div>
                             <div className="form-group">
                                 <label for="desc2">Who can apply</label>
-                                <textarea id="desc2" rows="4" className="form-control" placeholder="Who can apply"></textarea>
+                                <textarea id="desc2" rows="4" className="form-control" placeholder="Who can apply" name = "Whocanapply" value = {postjob.Whocanapply} onChange = {handleJobInput}></textarea>
                             </div>
                            
                             
@@ -110,7 +149,7 @@ export default function Profile(){
                     </div>
                 </div>
                 <div className="text-right mb-5">
-                    <a href="" className="btn btn-success">Add</a>
+                    <button type = "submit" onClick = {Addjob}>Add</button>
                 </div>
             </div>
         </div>
