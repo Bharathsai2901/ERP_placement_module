@@ -17,6 +17,8 @@ import Profile from "./Components/profile"
 import Company from "./Components/Company-home"
 import AddJob from "./Components/Add-job"
 import Apply from "./Components/apply"
+import Resume from "./Components/resume";
+import Userform from "./Components/Userform";
 import Review from "./Components/reviewapplication" 
 import Nav2 from "./Components/company-nav"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -33,6 +35,7 @@ export default function App() {
         <Route path="/Student-login" element={<Student/>} />
         <Route path="/forgotpassword" element={<Forgot/>} />
         <Route path="/Student-home" element={<SH/>} />
+        <Route path="/Userform" element={<Userform/>} />
         <Route path="/Job-description" element={<div><Navbar/><Jobdes/></div>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/Add-job" element={<AddJob/>} />
