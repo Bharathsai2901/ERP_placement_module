@@ -90,7 +90,7 @@ export default function Login() {
                 <label for="remember-me">Remember me</label>
               </div>
               <div className="pass-link">
-                <a href="#">Forgot password?</a>
+                <a href="/forgotpassword">Forgot password?</a>
               </div>
             </div>
             <div>

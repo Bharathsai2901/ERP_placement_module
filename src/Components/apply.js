@@ -6,8 +6,6 @@ import Row from "react-bootstrap/Row";
 import "../styles/apply.css";
 
 export default function Form() {
-  
-
   const [studentDetails, setStudentDetails] = useState({
     availability:"", 
     assessment:{

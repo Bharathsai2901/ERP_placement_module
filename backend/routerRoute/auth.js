@@ -5,16 +5,14 @@ const router = express.Router()
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
-
 require("../db/connection")
 const User = require("../connectionSchema/schema")
-
 const authUserLogin = async (req, res, next)=>{
   try{
-    const token = req.cookies.jwtoken
-    const tokenUser = jwt.verify(token, process.env.SECRETKEY)
-    const rootUser = await User.findOne({_id:tokenUser._id, "tokens.token":token})
-
+    const token = req.cookies.jwtoken 
+    const verifyUser = jwt.verify(token, process.env.SECRETKEY)
+    
+    const rootUser = await User.findOne({_id:verifyUser._id})
     req.rootUser = rootUser
     req.token = token 
     req.userId = rootUser._id

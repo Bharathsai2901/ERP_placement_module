@@ -14,10 +14,7 @@
     padding : 12px 20px;
     box-sizing: border-box;
   }
-   /* * {
-    box-sizing: border-box;
-    margin:auto;
-  }  */
+
 .h1text{
     border-bottom: 1px solid white;
     /* color: #3a9cca; */
@@ -30,9 +27,7 @@
     text-align: center;
   }
 .form-box {
-    /* background: rgb(245, 242, 242);  */
     box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
-    /* border: 1px solid #dedede; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
