@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 import React, {useState} from 'react';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+=======
+import React from 'react';
+>>>>>>> 4c12e68ba05dee04cb5e333f18d69a28726145ea
 import Navbar from "./company-nav"
-// import Avatar from 'react-avatar';
+import  { useEffect, useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/profile.css"
+<<<<<<< HEAD
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function Profile(){
@@ -47,6 +53,12 @@ export default function Profile(){
         }
     }
 
+=======
+import { Card, Row, Col, Container } from "react-bootstrap";
+
+export default function Profile(){
+
+>>>>>>> 4c12e68ba05dee04cb5e333f18d69a28726145ea
     return(
         <div>
             <Navbar/>

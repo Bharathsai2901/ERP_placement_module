@@ -8,7 +8,10 @@ const jwt = require("jsonwebtoken")
 require("../db/connection")
 const User = require("../connectionSchema/schema")
 const Company = require("../connectionSchema/companySchema")
+<<<<<<< HEAD
 const JobDetails = require("../connectionSchema/jobDetails")
+=======
+>>>>>>> 4c12e68ba05dee04cb5e333f18d69a28726145ea
  
 const authUserLogin = async (req, res, next)=>{
   
@@ -42,7 +45,10 @@ catch(err){
   console.log(err.message)
 }
 
+<<<<<<< HEAD
 })
+=======
+>>>>>>> 4c12e68ba05dee04cb5e333f18d69a28726145ea
 
 
 router.get("/", (request, response)=>{

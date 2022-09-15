@@ -4,17 +4,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
  import Navbar from "./Components/navbar.js";
 // import Card from "./Components/card";
 import SH from "./Components/student_home"
-import Forgot from "./student_login";
+import Forgot from "./forgotpassword";
 import Dash from "./dashboard";
 import Student from "./student_login_new"
+import Staff from "./Staff_login"
+import CompanyL from "./Company_login"
 // import Student from "./student_login";
 import Jobdes from "./Components/job_des"
-import Login from "./Components/login_new";
+import Login from "./Components/login_erp";
 import About from "./Components/about";
 import Profile from "./Components/profile"
 import Company from "./Components/Company-home"
 import AddJob from "./Components/Add-job"
- import Apply from "./Components/apply"
+import Apply from "./Components/apply"
+import Review from "./Components/reviewapplication" 
 import Nav2 from "./Components/company-nav"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./home_style.css";
@@ -26,23 +29,23 @@ export default function App() {
     <div>
       <BrowserRouter>
       <Routes>
-         <Route path="/" element={<Login/>} />
+        <Route path="/" element={<Login/>} />
         <Route path="/Student-login" element={<Student/>} />
-        <Route path="/Company-login" element={<Company/>} />
+        <Route path="/forgotpassword" element={<Forgot/>} />
         <Route path="/Student-home" element={<SH/>} />
         <Route path="/Job-description" element={<div><Navbar/><Jobdes/></div>} />
         <Route path="/profile" element={<Profile/>} />
         <Route path="/Add-job" element={<AddJob/>} />
-         <Route path="/Apply" element={<div><Navbar/><Apply/></div>} /> 
+        <Route path="/Apply" element={<div><Navbar/><Apply/></div>} /> 
       </Routes>
-          {/* <Student/>  */}
-           {/* <Login />  */}
-
-       {/* <Student/>  */}
-
-        {/* <Navbar/> */}
-         {/* <Card/>  */}
-        {/* <Jobdes/>   */}
+      <Routes>
+        <Route path="/Staff-login" element={<Staff/>} />
+      </Routes>
+      <Routes>
+        <Route path="/Company-login" element={<CompanyL/>} />
+        <Route path="/Company-home" element={<Company/>}/>
+        <Route path="/reviewapplication" element={<Review/>}/>
+      </Routes>
         </BrowserRouter>
 
     </div>
