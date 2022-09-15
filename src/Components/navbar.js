@@ -36,7 +36,7 @@ function BasicExample() {
             <Button variant="outline-success"><Search/></Button>
           </Form>
             <Nav.Link href="/student-home" className="navitems">Home</Nav.Link>
-            <Nav.Link href="https://rsoftiittp.herokuapp.com/" target="_blank" className="navitems">Generate Resume</Nav.Link>
+            <Nav.Link href="/Userform" target="_blank" className="navitems">Resume</Nav.Link>
             <NavDropdown href="/student-home" title="References" id="basic-nav-dropdown">
               <NavDropdown.Item href="https://cdc.iittp.ac.in/images/iit/IITT%20CDC%20Annual%20Report-2021-2022.pdf" target="_blank">Previous year stats</NavDropdown.Item>
               <NavDropdown.Item href="https://udaaniitt.in/">
