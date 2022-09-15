@@ -2,6 +2,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "../home_style.css"
 import { Outlet, Link } from "react-router-dom";
@@ -23,6 +25,15 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" class="navmenu">
           <Nav className="me-auto" >
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
             <Nav.Link href="/student-home" className="navitems">Home</Nav.Link>
             <Nav.Link href="https://rsoftiittp.herokuapp.com/" target="_blank" className="navitems">Generate Resume</Nav.Link>
             <NavDropdown href="/student-home" title="References" id="basic-nav-dropdown">
@@ -34,7 +45,7 @@ function BasicExample() {
             </NavDropdown>
             <NavDropdown href="/student-home" title="Account" id="basic-nav-dropdown">
             <NavDropdown.Item href="/Profile" className="navitems">Profile</NavDropdown.Item>
-            <NavDropdown.Item href="/" className="navitems">Logout</NavDropdown.Item>
+            <NavDropdown.Item href="/Student-login" className="navitems">Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
