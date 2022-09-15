@@ -8,7 +8,7 @@ import Forgot from "./student_login";
 import Dash from "./dashboard";
 import Student from "./student_login_new"
 import Staff from "./Staff_login"
-import Company from "./Company_login"
+import CompanyL from "./Company_login"
 // import Student from "./student_login";
 import Jobdes from "./Components/job_des"
 import Login from "./Components/login_new";
@@ -41,8 +41,8 @@ export default function App() {
         <Route path="/Staff-login" element={<Staff/>} />
       </Routes>
       <Routes>
-        <Route path="/Company-login" element={<Company/>} />
-        <Route path="/Company_home" element={<CompanyH/>}/>
+        <Route path="/Company-login" element={<CompanyL/>} />
+        <Route path="/Company-home" element={<Company/>}/>
       </Routes>
           {/* <Student/>  */}
            {/* <Login />  */}
