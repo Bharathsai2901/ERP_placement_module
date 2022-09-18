@@ -1,6 +1,11 @@
 import "../styles/sendnotify.css"
 import React from "react";
+import Button from "react-bootstrap/Button";
+import MyVerticallyCenteredModal from "./modal"
+
+
 export default function sendnotify(){
+   const [modalShow, setModalShow] = React.useState(false);
    return(
       <div>
       <div className="wrapper">
@@ -20,9 +25,20 @@ export default function sendnotify(){
                <div className="field">
                   <textarea name="message" id="message" className="input" placeholder="Type message here.."></textarea><br />
                </div>
-               <div className="field">
-                  <button className = "btn btn-success">Send</button>
-               </div>
+               <div className="text-right field mb-5">
+                    {/* <a href="" className="btn btn-success">Add</a> */}
+
+                    <Button className="btn btn-success" onClick={() => setModalShow(true)}>
+                    Add
+                </Button>
+
+                <MyVerticallyCenteredModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    text="Email sent successfully"
+                    href="/sendnotify"
+                />
+                </div>
                </form>
          </div>
       </div>
