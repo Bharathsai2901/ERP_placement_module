@@ -2,14 +2,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./navbar"
 // import Avatar from 'react-avatar';
 import "../styles/profile.css"
+import MyVerticallyCenteredModal from "./modal"
+import Button from "react-bootstrap/Button";
 import React from "react";
 
 export default function Profile(){
+    const [modalShow, setModalShow] = React.useState(false);
 
     return(
         <div>
             <Navbar/>
-            <div className="container  page__container">
+            <div className="container page__container">
                 <div className="card border-0 card-form">
                     <div className="row no-gutters ">
                         <div className="col-lg-4 card-body">
@@ -106,7 +109,18 @@ export default function Profile(){
                     </div>
                 </div>
                 <div className="text-right mb-5">
-                    <a href="" className="btn btn-success">Save</a>
+                    {/* <a href="" className="btn btn-success">Add</a> */}
+
+                    <Button className="btn btn-success" onClick={() => setModalShow(true)}>
+                    Add
+                </Button>
+
+                <MyVerticallyCenteredModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    text="Your profile has been updated successfully"
+                    href="/Profile"
+                />
                 </div>
             </div>
         </div>
