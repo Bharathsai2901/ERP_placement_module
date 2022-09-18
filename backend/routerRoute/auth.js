@@ -17,13 +17,52 @@ const authUserLogin = async (req, res, next)=>{
     
     const rootUser = await User.findOne({_id:verifyUser._id})
     req.rootUser = rootUser
-  }
+    
+  } 
   catch(err){
     res.status(401).json({message:"Unauthorized Entry!!"})
     console.log(err.message)
   }
   next()
 }
+
+router.get("/uploadDetails", async (req, res)=>{
+  try{
+  const getJobDetails = await JobDetails.find()
+  if(getJobDetails.length === 0){
+    res.status(500).json({'message':"server error!"})
+  }
+  else{
+    res.status(200).json(getJobDetails)
+  }
+}
+catch(err){
+  console.log(err.message)
+}
+})
+
+router.post("/uploadResume", authUserLogin, async (req, res)=>{
+  const {Name, Email} = req.rootUser
+  
+  const {availability, internships, workDone, studentResume} = req.body
+
+  if(!availability || !internships ||!workDone ||!studentResume){
+    res.status(422).json({"message":"Fill the details!!"})
+  }
+  else{
+    const isPresent = await Company.findOne({Name, Email})
+    if(!isPresent){
+      const newStudent = new Company({Name, Email, availability, internships, workDone, studentResume})
+      await newStudent.save()
+    }
+    else{
+      await Company.updateOne({availability, internships, workDone, studentResume})
+    }
+    res.status(201).json({"Message":"Updated Succesfully!!"})
+  }
+  
+})
+
 router.post("/uploadDetails", async (req, res)=>{
   const {Jobtitle, Salary, Location, Type,Openings,Applybefore,Jobdescription,Skillsrequired,Whocanapply} = req.body
   try{
