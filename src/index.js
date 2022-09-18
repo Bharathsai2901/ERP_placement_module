@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
- import Navbar from "./Components/navbar.js";
-// import Card from "./Components/card";
+import Navbar from "./Components/navbar.js";
+import Sendnotify from "./Components/sendnotify"
 import SH from "./Components/student_home"
 import Forgot from "./forgotpassword";
 import Dash from "./dashboard";
@@ -45,6 +45,7 @@ export default function App() {
         <Route path="/Company-login" element={<CompanyL/>} />
         <Route path="/Company-home" element={<Company/>}/>
         <Route path="/reviewapplication" element={<Review/>}/>
+        <Route path="/sendnotify" element={<Sendnotify/>}/>
       </Routes>
         </BrowserRouter>
 
