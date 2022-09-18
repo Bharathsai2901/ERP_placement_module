@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Row, Col, Container } from "react-bootstrap";
 import Navbar from "./navbar"
 // import Avatar from 'react-avatar';
 import "../styles/profile.css"
+import React from "react";
 
 export default function Profile(){
 

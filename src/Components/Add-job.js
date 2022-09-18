@@ -1,12 +1,7 @@
 import React, {useState} from 'react';
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Navbar from "./company-nav"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/profile.css"
-import toast, { Toaster } from 'react-hot-toast';
 
 export default function Profile(){
 

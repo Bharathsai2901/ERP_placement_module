@@ -1,11 +1,25 @@
 import React from "react";
 import { useState } from 'react';
-import { Outlet, Link } from "react-router-dom";
-import Jobdes from "./job_des"
-import Row from "react-bootstrap/Row";
 import "../styles/apply.css";
+import IconButton from "@material-ui/core/IconButton";
+import Snackbar from "@material-ui/core/Snackbar";
+import Button from "@material-ui/core/Button";
+
+
 
 export default function Form() {
+  const [open, setOpen] = React.useState(false);
+  
+  const handleToClose = (event, reason) => {
+    if ("clickaway" == reason) return;
+    setOpen(false);
+  };
+  
+  const handleClickEvent = () => {
+    setOpen(true);
+  };
+
+
   const [studentDetails, setStudentDetails] = useState({
     availability:"", 
     assessment:{
@@ -64,8 +78,31 @@ export default function Form() {
             <div class="form-group">
             <label className="form-label" ><p className="ques">Please upload your resume here</p></label><br/>
             <input className="input" type="file"  /><br/><br/>
-
-            <button type="submit" class="btn btn-primary"  onClick = {submitResume}>Upload and submit</button>
+            <Button type="submit" class="btn btn-primary" onClick={handleClickEvent} >
+            Upload and Submit
+            </Button>
+      <Snackbar
+        anchorOrigin={{
+          horizontal: "left",
+          vertical: "bottom",
+        }}
+        open={open}
+        autoHideDuration={5000}
+        message="Your response has been submitted"
+        onClose={handleToClose}
+        action={
+          <React.Fragment>
+            <IconButton
+              size="small"
+              aria-label="close"
+              color="inherit"
+              onClick={handleToClose}
+            >
+            </IconButton>
+          </React.Fragment>
+        }
+        />
+            
             </div>
             <div >
             </div>
