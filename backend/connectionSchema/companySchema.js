@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
     require:true
   }
 })
-
+ 
 const studentDetails = mongoose.model("student_resume", userSchema)
 
 module.exports = studentDetails

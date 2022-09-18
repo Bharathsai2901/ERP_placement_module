@@ -39,7 +39,7 @@ const jobSchema = new mongoose.Schema({
     require:true
   }
 })
-
+ 
 const studentDetails = mongoose.model("jobDetails", jobSchema)
 
 module.exports = studentDetails

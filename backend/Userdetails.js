@@ -3,4 +3,4 @@ const pass = 'GroshanCS10*#';
 
 
 exports.user = user
-exports.pass = pass
+exports.pass = pass 

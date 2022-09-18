@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema({
     }
   ]
 })
-
+ 
 userSchema.methods.authenticate = async function(){
   try{
     let token = jwt.sign({_id:this._id}, process.env.SECRETKEY)

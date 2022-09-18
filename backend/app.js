@@ -19,7 +19,7 @@ app.get('/send', (req, res) => {
   let email2 = req.query.email2;
   let subject = req.query.subject;
   let message = req.query.message;
-
+ 
 
   const mail = nodemailer.createTransport({
       host: 'smtp.gmail.com',
