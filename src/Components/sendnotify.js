@@ -21,7 +21,7 @@ export default function sendnotify(){
                   <textarea name="message" id="message" className="input" placeholder="Type message here.."></textarea><br />
                </div>
                <div className="field">
-                  <button className = "btn">Send</button>
+                  <button className = "btn btn-success">Send</button>
                </div>
                </form>
          </div>
