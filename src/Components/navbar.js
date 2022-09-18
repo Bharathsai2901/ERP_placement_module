@@ -33,7 +33,7 @@ function BasicExample() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success"><Search/></Button>
+            <Button variant="outline-success search-btn"><Search/></Button>
           </Form>
             <Nav.Link href="/student-home" className="navitems">Home</Nav.Link>
             <Nav.Link href="https://rsoftiittp.herokuapp.com/" target="_blank" className="navitems">Generate Resume</Nav.Link>
@@ -46,7 +46,7 @@ function BasicExample() {
             </NavDropdown>
             <NavDropdown href="/student-home" title="Account" id="basic-nav-dropdown">
             <NavDropdown.Item href="/Profile" className="navitems">Profile</NavDropdown.Item>
-            <NavDropdown.Item href="/Student-login" className="navitems">Logout</NavDropdown.Item>
+            <NavDropdown.Item href="/" className="navitems">Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

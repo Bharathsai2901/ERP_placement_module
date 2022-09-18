@@ -22,3 +22,13 @@ body{
     box-shadow: 0 2px 25px 0 rgb(54 66 117 / 12%);
 }
 
+.me-2{
+    width:50%!important;
+    height:70%!important;
+    margin-top:11px;
+}
+
+.search-btn{
+    width: 60px !important;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 5%)!important;
+}

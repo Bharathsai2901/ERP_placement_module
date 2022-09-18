@@ -20,7 +20,8 @@
 }
 
 .card-form__body{
-    background-color: #f6f6f6;
+     background-color: #f6f6f6;  
+     /* background-color:#faded1; */
 }
 
 
@@ -90,4 +91,8 @@
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
+}
+
+.btn-success{
+    width: 100px!important;
 }

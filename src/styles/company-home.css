@@ -68,6 +68,11 @@ b{
     margin-top:3px;
 }
 
+span a{
+    text-decoration: none;
+    color:#97222b;
+}
+
 .row{
     padding:20px;
 }
@@ -101,7 +106,7 @@ body#sunfw-master .richbox-2 .module-title .box-title {
 }
 
 .box-title{
-    background-color: #97222b;
+    background-color: #5068e3;
     color: #fff;
 }
 
@@ -127,4 +132,22 @@ div[class*=richbox-] div.module-style-inner, div[class*=solid-] div.module-style
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
+}
+
+.clickme{
+    font-size:15px;
+    box-sizing: border-box;
+}
+
+.ul1 li{
+    list-style-type: square;
+}
+
+.ul2 li{
+    list-style-type: square;
+}
+
+.ul2 a{
+    text-decoration: none;
+    color: blue;
 }

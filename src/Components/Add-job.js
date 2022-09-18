@@ -4,10 +4,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Navbar from "./company-nav"
+import MyVerticallyCenteredModal from "./modal"
 // import Avatar from 'react-avatar';
 import "../styles/profile.css"
 
 export default function Profile(){
+    const [modalShow, setModalShow] = React.useState(false);
     return(
         <div>
             <Navbar/>
@@ -110,7 +112,16 @@ export default function Profile(){
                     </div>
                 </div>
                 <div className="text-right mb-5">
-                    <a href="" className="btn btn-success">Add</a>
+                    {/* <a href="" className="btn btn-success">Add</a> */}
+
+                    <Button className="btn btn-success" onClick={() => setModalShow(true)}>
+                    Add
+                </Button>
+
+                <MyVerticallyCenteredModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
                 </div>
             </div>
         </div>

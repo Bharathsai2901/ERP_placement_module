@@ -8,7 +8,7 @@ import Forgot from "./forgotpassword";
 import Dash from "./dashboard";
 import Student from "./student_login_new"
 import Staff from "./Staff_login"
-import CompanyL from "./Company_login"
+import CompanyL from "./erp-company-login"
 // import Student from "./student_login";
 import Jobdes from "./Components/job_des"
 import Login from "./Components/login_erp";
@@ -19,6 +19,7 @@ import AddJob from "./Components/Add-job"
 import Apply from "./Components/apply"
 import Review from "./Components/reviewapplication" 
 import Nav2 from "./Components/company-nav"
+import Email from "./Components/email"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./home_style.css";
 import "./style.css";
@@ -37,6 +38,7 @@ export default function App() {
         <Route path="/profile" element={<Profile/>} />
         <Route path="/Add-job" element={<AddJob/>} />
         <Route path="/Apply" element={<div><Navbar/><Apply/></div>} /> 
+        <Route path="/sendinvitation" element={<div><Nav2/><Email/></div>} /> 
       </Routes>
       <Routes>
         <Route path="/Staff-login" element={<Staff/>} />
@@ -44,7 +46,7 @@ export default function App() {
       <Routes>
         <Route path="/Company-login" element={<CompanyL/>} />
         <Route path="/Company-home" element={<Company/>}/>
-        <Route path="/reviewapplication" element={<Review/>}/>
+        <Route path="/reviewapplication" element={<div><Navbar/><Review/></div>}/>
       </Routes>
         </BrowserRouter>
 

@@ -4,7 +4,7 @@ import "../styles/company-home.css"
 
 export default function App(){
     return(
-        <div>
+        <div className="chomediv">
             <div id="sunfw_section_main-content" class="sunfw-section sw-boxshadow">
    <div class="container company-container">
       <div id="row_row-1" class="row  sunfw-flex-component">
@@ -51,7 +51,7 @@ export default function App(){
                      <h1><b>Why recruit at IIT Tirupati?</b></h1>
                      <ul  className="ul1" >
                         <li><span className="l1"  >IIT Tirupati is one of the most rapidly developing third-generation IITs.</span></li>
-                        <li><span className="l1"  >Our institute employs top notch faculty from reputed institutes in India and abr/oad.
+                        <li><span className="l1"  >Our institute employs top notch faculty from reputed institutes in India and abroad.
                            </span>
                         </li>
                         <li><span className="l1"  >Our institute has setup a wonderful academic infrastructure.
@@ -100,7 +100,7 @@ export default function App(){
                            <div class="custom">
                               <p><strong>Placement Season 2022-2023</strong></p>
                               <ul className="ul2">
-                                 <li><span className="l3"    >The Company registrations for the year 2022-23 placements have started. Please <a href="https://iittp.calyxpod.com/pages/campus-placements" target="_blank"><b>click here</b></a> to register.</span></li>
+                                 <li><span className="l3"    >The Company registrations for the year 2022-23 placements have started. Please <a className="clickhere" href="/Add-job">click here</a> to post job.</span></li>
                                  <li><span className="l3"    >The Pre-Placement talks will be commencing from 22<sup>nd</sup> August 2022.</span></li>
                                  <li><span className="l3"    >The recruitment season will start from 2<sup>nd</sup> of September and continue till the end of 2022-23 academic session.
                                     </span>

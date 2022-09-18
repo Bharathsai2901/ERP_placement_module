@@ -46,7 +46,7 @@ export default function Login() {
       setMsg(false)
     }
     else{
-      navigate("/")
+      navigate("/Company-home")
     }
   }catch(err){
     console.log(err.message)
@@ -74,7 +74,7 @@ export default function Login() {
           {/* <div className="title">Student Login</div> */}
           <div class="logo fadeIn animated"><img className="Logo" src="https://iittp.plumerp.co.in/prod/iittirupati/res/images/iittirupati-logo.png"  /></div>
           {/* <div class="welcome "> Welcome to IIT Tirupati E-Governance</div> */}
-          <div class="welcome "> Welcome to Staff login</div>
+          <div class="welcome "> Welcome to Company login</div>
           <form action="#">
             <div className="field">
               <input type="text" onChange = {handleInput} name = "Email" value = {user.Email} required />
