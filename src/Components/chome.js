@@ -8,7 +8,7 @@ export default function App(){
             <div id="sunfw_section_main-content" class="sunfw-section sw-boxshadow">
    <div class="container company-container">
       <div id="row_row-1" class="row  sunfw-flex-component">
-         <div id="column_column-1" class="col-xs-48 col-sm-9 col-md-9 col-lg-9 flex-md-unordered">
+         <div id="column_column-1" class="col-xs-48 col-sm-12 col-md-12 col-lg-12 flex-md-unordered">
             <div class="layout-item sunfw-item-page-content">
                <div id="system-message-container">
                </div>
@@ -20,9 +20,9 @@ export default function App(){
                      <h1><b>Director's Message</b></h1>
                      <div class="comment">
                         <div class="shortcontent">
-                           <div class="col-xs-3 col-md-3"><img class="img-responsive" src="https://i.ibb.co/Vt4W3PY/director.jpg" width="250" height="250" alt="Responsive image" align="left" /></div>
+                           {/* <div class="dir"><img class="img-responsive" src="https://i.ibb.co/Vt4W3PY/director.jpg" alt="Responsive image" align="left" /></div> */}
                            <p className="p1">
-                              IIT Tirupati, since its inception in 2015 as one of the six third-generation IITs, has been keen on creating an appropriate and state-of-the-art academic and research infrastructure. The Institute currently offers five bachelor's degree (B. Tech) programs in various engineering disciplines, namely Civil, Chemical, Computer Science, Electrical, and Mechanical. Currently, there are four master's degree (M.Tech) Programmes offered by Civil Engineering, three in Electrical, and one each in Computer Science and Mechanical Engineering departmen<span class="ellip">...</span>
+                              IIT Tirupati, since its inception in 2015 as one of the six third-generation IITs, has been keen on creating an appropriate and state-of-the-art academic and research infrastructure. The Institute currently offers five bachelor's degree (B. Tech) programs in various engineering disciplines, namely Civil, Chemical, Computer Science, Electrical, and Mechanical. Currently, there are four master's degree (M.Tech) Programmes offered by Civil Engineering, three in Electrical, and one each in Computer Science and Mechanical Engineering departments<span class="ellip"></span>
                            </p>
                         </div>
                         <div class="allcontent" >
@@ -45,7 +45,7 @@ export default function App(){
                               Director, IIT Tirupati.<br/>
                            </p>
                         </div>
-                        <span><a href="javascript://nop/" class="morelink">read more..</a></span>
+                        {/* <span><a href="javascript://nop/" class="morelink">read more..</a></span> */}
                      </div>
                      <br/>
                      <h1><b>Why recruit at IIT Tirupati?</b></h1>
@@ -100,7 +100,7 @@ export default function App(){
                            <div class="custom">
                               <p><strong>Placement Season 2022-2023</strong></p>
                               <ul className="ul2">
-                                 <li><span className="l3"    >The Company registrations for the year 2022-23 placements have started. Please <a href="https://iittp.calyxpod.com/pages/campus-placements" target="_blank"><b>click here</b></a> to register.</span></li>
+                                 <li><span className="l3"    >The Company registrations for the year 2022-23 placements have started. Please <a href="https://iittp.calyxpod.com/pages/campus-placements" target="_blank">click here</a> to register.</span></li>
                                  <li><span className="l3"    >The Pre-Placement talks will be commencing from 22<sup>nd</sup> August 2022.</span></li>
                                  <li><span className="l3"    >The recruitment season will start from 2<sup>nd</sup> of September and continue till the end of 2022-23 academic session.
                                     </span>
