@@ -17,7 +17,3 @@ db.once('open', function(){
   console.log("Connection Successful")
 })
 
-<<<<<<< HEAD
-=======
-mongoose.createConnection(COMPANYDATABASE, options)
->>>>>>> 4c12e68ba05dee04cb5e333f18d69a28726145ea
