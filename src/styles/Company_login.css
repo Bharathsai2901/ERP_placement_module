@@ -9,7 +9,7 @@ html,body{
   height: 100%;
   width: 100%;
   place-items: center;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
    /* background: linear-gradient(-135deg, #5a0954, #3f4d99);   */
   /* background-image:url(../images/IITTP1.jpeg); */
 }
