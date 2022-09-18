@@ -1,152 +1,87 @@
-import React, {useState} from 'react';
-import Navbar from "./company-nav"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "../styles/profile.css"
+import React, { useEffect } from "react";
+import { useState } from 'react';
+import { Outlet, Link } from "react-router-dom";
+import Jobdes from "./job_des"
+import Row from "react-bootstrap/Row";
+import "../styles/apply.css";
+import storage from "../firebase"
+import {ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage"
+import { v4 } from "uuid"
 
-export default function Profile(){
+export default function Form() {
+  const [studentDetails, setStudentDetails] = useState({
+    availability:"", 
+    internships:"", 
+    workDone:""
+  })
 
-    const [postjob, setpostjob] = useState({
-        Jobtitle:"", 
-        Salary:"",
-        Location:"",
-        Type:"Intern",
-        Openings:"",
-        Applybefore:"",
-        Jobdescription:"",
-        Skillsrequired:"",
-        Whocanapply:""
+  const folderRef = ref(storage, "images/")
+  const [updatedResume, setUpdatedResume] = useState([])
+
+  const [unlockBtn, setUnlockBtn] = useState(false)
+
+  const handleInput = async (event)=>{
+    let name, value 
+    name = event.target.name 
+    if(name === "fileUpload"){
+      value = event.target.files[0]
+      const imageRef = ref(storage, `images/${value.name + v4()}`);
+      const snapshot = await uploadBytes(imageRef, value)
+      getDownloadURL(snapshot.ref).then((url)=>{
+        setUpdatedResume((preState)=>[...preState, url])
+        console.log("Got File!")
+        setUnlockBtn(true)
+      })
+    }
+    else{
+      value = event.target.value
+    }
+    setStudentDetails({...studentDetails, [name]:value})
+  }
+
+  const submitResume = async (event)=>{
+    event.preventDefault()
+    const {availability, internships, workDone} = studentDetails
+    try{
+    const res = await fetch("/uploadResume", {
+      method:"post", 
+      headers:{
+        "Content-Type":"application/json"
+      }, 
+      body:JSON.stringify({availability, internships, workDone, studentResume:updatedResume})
     })
-    const handleJobInput=(event)=>{
-        let name, value 
-        name = event.target.name
-        value = event.target.value
+    console.log(res.status)
+  }
+  catch(err){
+    console.log(err.message)
+  }
+  }
 
-        setpostjob({...postjob, [name]:value})
-    }
-    const Addjob = async (event) =>{
-        event.preventDefault()
-        console.log(postjob)
+  return (
+      <div class="form-row align-items-center ">
+          <h1 className="h1text">Job Application</h1>
+          <form className="form-box">
+          <div class="form-group">
+          <label className="form-label" for="textarea"><p className="ques">Have you done any internships ?If yes please mention the details.</p></label> 
+          <textarea id="textarea" name="internships" cols="40" rows="5" required="required" class="form-control" onChange = {handleInput}></textarea>
+          </div>
+          <div class="form-group">
+          <label className="form-label" for="textarea1"><p className="ques">Are you available for 6 months ,starting immediately, for a full time work from home internship?If not,what is time period you are available for and the earliest date you can start this internship on ?</p></label> 
+          <textarea id="textarea1" name="availability" cols="40" rows="5" class="form-control" onChange = {handleInput}></textarea>
+          </div>
+          <div class="form-group">
+          <label className="form-label" for="textarea2"><p className="ques">Kindly give the details of sample applications developed by you.Please share the links if you have them.</p></label> 
+          <textarea id="textarea2" name="workDone" cols="40" rows="5" class="form-control" onChange = {handleInput}></textarea>
+          </div> 
+            <div class="form-group">
+            <label className="form-label" ><p className="ques">Please upload your resume here</p></label><br/>
+            <input className="input" type="file" name = "fileUpload" onChange = {handleInput}/><br/><br/>
 
-        const res = await fetch("/uploadDetails", {
-            method:"post", 
-            headers:{
-                "Content-Type":"application/json"
-            }, 
-            body:JSON.stringify(postjob)
-        })
-        if(res.status === 201){
-            window.alert("Details have been recorded!")
-        }
-        else{
-            console.log(res.status)
-        }
-    }
-
-    return(
-        <div>
-            <Navbar/>
-            <div className="container  page__container">
-                <div className="card border-0 card-form">
-                    <div className="row no-gutters ">
-                        <div className="col-lg-4 card-body">
-                            <p><strong className="headings-color">Job Details</strong></p>
-                            <p className="text-muted mb-0">Please enter relevant details of the job.</p>
-                        </div>
-                        <div className="col-lg-8 card-form__body card-body">
-                            <div className="row ">
-                                <div className="col">
-                                    <div className="form-group">
-                                        <label for="fname">Job title</label>
-                                        <input id="fname" type="text" className="form-control" placeholder="Job title"  name = "Jobtitle" value = {postjob.Jobtitle} onChange = {handleJobInput}/>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="form-group">
-                                        <label for="lname">Salary</label>
-                                        <input id="lname" type="text" className="form-control" placeholder="Salary"  name = "Salary" value = {postjob.Salary} onChange = {handleJobInput}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row ">
-                                <div className="col">
-                                    <div className="form-group">
-                                        <label for="fname">Location</label>
-                                        <input id="fname" type="text" className="form-control" placeholder="Location" name = "Location" value = {postjob.Location} onChange = {handleJobInput} />
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="form-group">
-                                        <label for="lname" className="type">Type</label><br />
-                                        <select id="lname" className="custom-select w-auto" name = "Type" value={postjob.Type} onChange = {handleJobInput} >
-                                        <option value="Full time">Full time</option>
-                                        <option value="Intern" selected>Intern</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row ">
-                                <div className="col">
-                                        <div className="form-group">
-                                            <label for="fname">Openings</label>
-                                            <input id="fname" type="text" className="form-control" placeholder="Openings" name = "Openings" value = {postjob.Openings} onChange = {handleJobInput} />
-                                        </div>
-                                </div>
-                                <div className="col">
-                                        <div className="form-group">
-                                            <label for="fname">Apply before</label>
-                                            <input id="fname" type="text" className="form-control" placeholder="Apply before" name = "Applybefore" value = {postjob.Applybefore} onChange = {handleJobInput} />
-                                        </div>
-                                </div>
-                            </div>
-                            <div className="form-group">
-                                <label for="desc">Job Description</label>
-                                <textarea id="desc" rows="4" className="form-control" placeholder="Job description" name = "Jobdescription" value = {postjob.Jobdescription} onChange = {handleJobInput} ></textarea>
-                            </div>
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-
-                
-
-                <div className="card border-0 card-form">
-                    <div className="row  no-gutters">
-                        <div className="col-lg-4 card-body">
-                            <p><strong className="headings-color">Other Details</strong></p>
-                            <p className="text-muted mb-0">Please fill the extra details</p>
-                        </div>
-                        <div className="col-lg-8 card-form__body card-body">
-                            <div className="form-group">
-                                <label>Relevant Documents(if any)</label>
-                                <div className="dz-clickable media align-items-center" data-toggle="dropzone" data-dropzone-url="http://" data-dropzone-clickable=".dz-clickable" data-dropzone-files="[&quot;assets/images/account-add-photo.svg&quot;]">
-                                    <div className="dz-preview dz-file-preview dz-clickable mr-3">
-                                        <div className="avatar avatar-lg">
-                                            <img src="https://lema.frontted.com/assets/images/account-add-photo.svg" className="avatar-img rounded" alt="..." data-dz-thumbnail="" />
-                                        </div>
-                                    </div>
-                                    <div className="media-body">
-                                        <button className="btn btn-sm btn-primary dz-clickable">Browse</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="form-group">
-                                <label for="desc2">Skills Required</label>
-                                <textarea id="desc2" rows="4" className="form-control" placeholder="Skills required" name = "Skillsrequired" value = {postjob.Skillsrequired} onChange = {handleJobInput} ></textarea>
-                            </div>
-                            <div className="form-group">
-                                <label for="desc2">Who can apply</label>
-                                <textarea id="desc2" rows="4" className="form-control" placeholder="Who can apply" name = "Whocanapply" value = {postjob.Whocanapply} onChange = {handleJobInput}></textarea>
-                            </div>
-                           
-                            
-                        </div>
-                    </div>
-                </div>
-                <div className="text-right mb-5">
-                    <button type = "submit" onClick = {Addjob}>Add</button>
-                </div>
+            {unlockBtn && <button type="submit" class="btn btn-success"  onClick = {submitResume}>Upload and submit</button>}
             </div>
+            <div >
+            </div>
+          </form>
         </div>
-    )
+  );
 }

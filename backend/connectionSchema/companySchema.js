@@ -22,9 +22,9 @@ const userSchema = new mongoose.Schema({
     type:String, 
     require:true
   }, 
-  resume: {
-    data: Buffer,
-    contentType: String,
+  studentResume: {
+    type:Array, 
+    require:true
   }
 })
 
