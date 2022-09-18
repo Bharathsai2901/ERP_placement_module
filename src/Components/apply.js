@@ -1,14 +1,23 @@
 import React, { useEffect } from "react";
 import { useState } from 'react';
-import { Outlet, Link } from "react-router-dom";
-import Jobdes from "./job_des"
-import Row from "react-bootstrap/Row";
 import "../styles/apply.css";
 import storage from "../firebase"
 import {ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage"
 import { v4 } from "uuid"
 
 export default function Form() {
+  const [open, setOpen] = React.useState(false);
+  
+  const handleToClose = (event, reason) => {
+    if ("clickaway" == reason) return;
+    setOpen(false);
+  };
+  
+  const handleClickEvent = () => {
+    setOpen(true);
+  };
+
+
   const [studentDetails, setStudentDetails] = useState({
     availability:"", 
     internships:"", 

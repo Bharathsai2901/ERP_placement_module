@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import "../styles/sendnotify.css"
-
+import React from "react";
 export default function sendnotify(){
    return(
       <div>

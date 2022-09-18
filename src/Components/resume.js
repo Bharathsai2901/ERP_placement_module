@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
 import Pdf from "react-to-pdf";
 import axios from 'axios';
 import { saveAs } from 'file-saver';

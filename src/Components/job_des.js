@@ -1,6 +1,5 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
-import { Outlet, Link } from "react-router-dom";
 import "../styles/job_des.css";
 export default function desc() {
   return (
