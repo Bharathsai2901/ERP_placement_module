@@ -46,7 +46,7 @@ function BasicExample() {
             </NavDropdown>
             <NavDropdown href="/student-home" title="Account" id="basic-nav-dropdown">
             <NavDropdown.Item href="/Profile" className="navitems">Profile</NavDropdown.Item>
-            <NavDropdown.Item href="/Student-login" className="navitems">Logout</NavDropdown.Item>
+            <NavDropdown.Item href="/" className="navitems">Logout</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
