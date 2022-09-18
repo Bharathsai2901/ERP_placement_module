@@ -1,14 +1,24 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Grid from "@material-ui/core/Grid";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Link } from "react-router-dom";
-import { flexbox } from "@mui/system";
+
+
 
 export default function App() {
+    const [resumeDetails,setResumeDetails]=useState();
+
+    useEffect(async ()=>{
+    const res =   await fetch("/getAppliedDetails") 
+    const finalRes= await res.json()
+    setResumeDetails(finalRes)
+    }, [])
+
+    console.log(resumeDetails)
+    
     return (
         <div>
         <h4 style={{ padding:20,

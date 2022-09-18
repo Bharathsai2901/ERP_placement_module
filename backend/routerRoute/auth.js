@@ -82,6 +82,21 @@ catch(err){
 
 })
 
+router.get("/getAppliedDetails", async(req, res)=>{
+  try{
+    const result = await Company.find()
+    if(result.length === 0){
+      res.json({'message':"No data availaible"})
+    }
+    else{
+      res.status(200).json(result)
+    }
+  }
+  catch(err){
+    console.log(err.message)
+  }
+}) 
+
 
 router.get("/", (request, response)=>{
   response.send("This is response from router")
