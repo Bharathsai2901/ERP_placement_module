@@ -20,7 +20,7 @@ export default function Dynamic() {
   }, []); 
 
    return (
-     <div className="container card border-0">
+     <div className="container-fluid card border-0">
        <div className="row">
          {data.map((eachItem)=><SingleCard details = {eachItem}/>)}
        </div>
