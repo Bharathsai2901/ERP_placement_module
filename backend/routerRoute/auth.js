@@ -8,6 +8,10 @@ const jwt = require("jsonwebtoken")
 require("../db/connection")
 const User = require("../connectionSchema/schema")
 const Company = require("../connectionSchema/companySchema")
+<<<<<<< HEAD
+const JobDetails = require("../connectionSchema/jobDetails")
+=======
+>>>>>>> 4c12e68ba05dee04cb5e333f18d69a28726145ea
  
 const authUserLogin = async (req, res, next)=>{
   
@@ -24,6 +28,27 @@ const authUserLogin = async (req, res, next)=>{
   }
   next()
 }
+router.post("/uploadDetails", async (req, res)=>{
+  const {Jobtitle, Salary, Location, Type,Openings,Applybefore,Jobdescription,Skillsrequired,Whocanapply} = req.body
+  try{
+  if(!Jobtitle || !Salary || !Location || !Type|| !Openings|| !Applybefore|| !Jobdescription|| !Skillsrequired|| !Whocanapply){
+    res.status(422).json({"status":"Fill every Details"})
+  }
+  else{
+    const jobDetails = new JobDetails({Jobtitle, Salary, Location, Type,Openings,Applybefore,Jobdescription,Skillsrequired,Whocanapply})
+
+    await jobDetails.save()
+    res.status(201).json({"status":"User Created Successfully!"})
+  }
+}
+catch(err){
+  console.log(err.message)
+}
+
+<<<<<<< HEAD
+})
+=======
+>>>>>>> 4c12e68ba05dee04cb5e333f18d69a28726145ea
 
 
 router.get("/", (request, response)=>{

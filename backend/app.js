@@ -16,6 +16,8 @@ const PATH = process.env.CONNECTIONPATH
 app.get('/send', (req, res) => {
   // fetching data from form
 
+<<<<<<< HEAD
+=======
   let email1 = req.query.email1;
   let email2 = req.query.email2;
   let subject = req.query.subject;
@@ -48,6 +50,7 @@ app.get('/send', (req, res) => {
   });
 });
 
+>>>>>>> 4c12e68ba05dee04cb5e333f18d69a28726145ea
 app.use(express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }))
 app.use(express.json({ limit: "50mb", extended: true, parameterLimit: 50000 }))
 app.use(cookieParser())
