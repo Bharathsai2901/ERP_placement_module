@@ -104,12 +104,6 @@ body#sunfw-master .richbox-2 {
     background-color: #fafafa;
 }
 
-.dir-msg{
-    margin-top: 20px;
-    color: rgb(0, 0, 128);
-    text-align: justify;
-}
-
 body#sunfw-master .richbox-2 .module-title .box-title {
     background: #97222b;
     font-size: 17px;
@@ -118,7 +112,7 @@ body#sunfw-master .richbox-2 .module-title .box-title {
 }
 
 .box-title{
-    background-color: #315ce7;
+    background-color: #97222b;
     color: #fff;
 }
 

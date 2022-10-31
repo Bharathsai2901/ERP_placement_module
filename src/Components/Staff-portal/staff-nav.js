@@ -9,7 +9,7 @@ function BasicExample() {
       <Container>
       <Navbar.Brand href="/company-home">
             <img 
-              src="https://hdstockimages.com/wp-content/plugins/image-downloader-custom/temp/HDStockImages_premium_RITSC6.jpg"
+              src="https://upload.wikimedia.org/wikipedia/en/b/b0/Indian_Institute_of_Technology_Tirupati_Logo.svg"
               width="60"
               height="60"
               className="d-inline-block align-top logo"

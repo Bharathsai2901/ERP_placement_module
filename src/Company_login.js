@@ -72,7 +72,7 @@ export default function Login() {
       <div className="wrapper">
         <div className="wrap">
           {/* <div className="title">Student Login</div> */}
-          <div class="logo fadeIn animated"><img className="Logo" src="https://hdstockimages.com/wp-content/plugins/image-downloader-custom/temp/HDStockImages_premium_RITSC6.jpg"  /></div>
+          <div class="logo fadeIn animated"><img className="Logo" src="https://iittp.plumerp.co.in/prod/iittirupati/res/images/iittirupati-logo.png"  /></div>
           {/* <div class="welcome "> Welcome to IIT Tirupati E-Governance</div> */}
           <div class="welcome "> Welcome to Company login</div>
           <form action="#">

@@ -11,7 +11,6 @@ const Company = require("../connectionSchema/companySchema")
 const JobDetails = require("../connectionSchema/jobDetails")
 const CompanyLogin = require("../connectionSchema/companyLogin")
 
-
 const authUserLogin = async (req, res, next)=>{
   try{
     const token = req.cookies.jwtoken 
@@ -206,6 +205,21 @@ catch(err){
 }
 })
 
+router.get("/getStudents", async (req, res)=>{
+  const companyName = req.cookies.companyName
+  const appliedStudent = await Company.find({companyName})
+  if(!companyName){
+    res.status(500).json({message:"try to login again!"})
+  }
+  else{
+    if(!appliedStudent){
+      res.status(200).json({message:"No student applied yet!"})
+    }
+    else{
+      res.status(201).json(appliedStudent)
+    }
+  }
+})
 
 router.get("/getAppliedDetails/:companyName", async (req, res)=>{
   const {companyName} = req.params
@@ -215,7 +229,7 @@ router.get("/getAppliedDetails/:companyName", async (req, res)=>{
       res.status(401).json({message:"No Students applied till now"})
     }
     else{
-      console.log(allStudentDetails)
+      
       res.status(200).json(allStudentDetails)
     }
   }
@@ -224,7 +238,7 @@ router.get("/getAppliedDetails/:companyName", async (req, res)=>{
   }
 })
 
-router.get("/getAppliedDetails/:companyName/:Jobtitle", authUserLogin, async(req, res)=>{
+router.get("/appliedStudent/:companyName/:Jobtitle", authUserLogin, async(req, res)=>{
   const {Email} = req.rootUser
   const {companyName, Jobtitle} = req.params
   try{
@@ -236,6 +250,39 @@ router.get("/getAppliedDetails/:companyName/:Jobtitle", authUserLogin, async(req
   }
 })
 
+router.get("/studentDetails/:Email", async(req, res)=>{
+  const {Email} = req.params
+  try{
+    const dataBack = await User.findOne({Email})
+    if(!dataBack){
+      res.status(501).json({message:"Server didnt responded"})
+    }
+    else{
+      res.status(200).json(dataBack)
+
+    }
+  }
+  catch(e){
+    console.log(e.message)
+  }
+})
+router.get("/getResume/:id", async (req, res)=>{
+  const {id} = req.params 
+  let appliedResume = await Company.findOne({_id:id})
+
+  res.status(200).json({appliedResume})
+})
+
+router.get("/studentsProfile/:mail", async (req, res)=>{
+  const {mail} = req.params
+  const appliedStudent = await User.findOne({Email:mail})
+  if(!appliedStudent){
+    res.status(400).json({message:"User didnt applied for company"})
+  }
+  else{
+    res.status(200).json(appliedStudent)
+  }
+})
 
 router.get("/", (request, response)=>{
   response.send("This is response from router")
@@ -260,16 +307,15 @@ router.post("/verifyCompany", async(req, res)=>{
       else{
         const checkUser = await bcrypt.compare(password, foundUser.password)
         if(checkUser){
+          res.cookie("companyName", foundUser.name, {
+            expires:new Date(Date.now() + 86400000),
+            httpOnly:true
+          })
           res.status(201).json({message:"Login Succesfull"})
         }
         else{
           res.status(400).json({message:"Enter Valid Credentials"})
         }
-        res.cookie("companyName", foundUser.name, {
-          expires:new Date(Date.now() + 86400000),
-          httpOnly:true
-        })
-        res.status(200).json({"message":"User Login succesfull!!"})
       }
     }
   }
