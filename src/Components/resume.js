@@ -235,7 +235,7 @@ export default class Resume extends Component {
 
                     <div className="container text-center">
                         <Pdf targetRef={ref} filename="resume.pdf">
-                            {({ toPdf }) => <button className="btn btn-info" onClick={toPdf}>Generate Pdf</button>}
+                            {({ toPdf }) => <button className="btn btn-info" onClick={toPdf} ref = {ref}>Generate Pdf</button>}
                         </Pdf>
                     </div>
                     <br />

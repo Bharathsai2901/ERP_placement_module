@@ -11,7 +11,6 @@ export default function Dynamic() {
   const actualCompanyName = new URLSearchParams(location.search).get('companyName')
   const [studentDetails, setStudentDetails] = useState([])
   const url = `/getAppliedDetails/${actualCompanyName}`
-
   useEffect(()=>{
     async function getStudents(){
       const res = await fetch(url)
@@ -21,6 +20,7 @@ export default function Dynamic() {
     getStudents()
   }, [])
   
+  console.log(studentDetails)
 
   return (
     <div className="container card border-0">
@@ -40,7 +40,12 @@ export default function Dynamic() {
         updated by 25th.
       </marquee>
       <div className="row">
-        {studentDetails.map((eachItem)=><SingleCard details = {eachItem} key = {eachItem._id}/>)} 
+        {/* {data.map((eachItem)=><SingleCard details = {eachItem}/>)} */}
+        <SingleCard />
+        <SingleCard />
+        <SingleCard />
+        <SingleCard />
+        
       </div>
     </div>
   );

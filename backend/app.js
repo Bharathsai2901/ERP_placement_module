@@ -1,7 +1,5 @@
 const dotenv = require("dotenv")
 const cookieParser = require("cookie-parser")
-const pdf = require('html-pdf');
-const pdfTemplate = require('../documents');
 const cors = require("cors")
 const fast2sms = require('fast-two-sms');
 
@@ -42,21 +40,3 @@ app.get("/", (request, response)=>{
     response.send("Hello World!")
   }, 5000)
 })
-
-app.post('/create-pdf', (req, res) => {
-  pdf.create(pdfTemplate(req.body), {}).toFile('Resume.pdf', (err) => {
-      if(err){
-          res.send(Promise.reject());
-          console.log(err);
-      }
-
-      res.send(Promise.resolve());
-      console.log('Success');
-  });
-});
-
-
-// Get - Send generated pdf to the client
-app.get('/fetch-pdf', (req,res) => {
-  res.sendFile(`${__dirname}/Resume.pdf`);
-});

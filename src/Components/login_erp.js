@@ -6,7 +6,7 @@ export default function App(){
     return(
         <div>
    <div className="page-wraper">
-      <div className="logo fadeIn animated"><img className="Logo" src="https://iittp.plumerp.co.in/prod/iittirupati/res/images/iittirupati-logo.png"  /></div>
+      <div className="logo fadeIn animated"><img className="Logo" src="https://hdstockimages.com/wp-content/plugins/image-downloader-custom/temp/HDStockImages_premium_RITSC6.jpg"  /></div>
       <div className="welcome "> Welcome to IIT Tirupati E-Governance</div>
       <form className="login-form" method="post">
       <Link to="/Student-login">

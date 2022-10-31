@@ -1,39 +1,12 @@
-import React, {useState, useEffect} from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
 import Nav3 from "./staff-nav";
 import "./styles/validate.css"
 
 export default function Validate() {
-  const location = useLocation()
-  const companyMail = new URLSearchParams(location.search).get('Email')
-  const getId = new URLSearchParams(location.search).get('_id')
-  const [studentDetails, setStudentDetails] = useState([])
-  const [resume, setResume] = useState()
-  const url = `/studentsProfile/${companyMail}/${getId}`
-  const resumeUrl = `/getResume/${getId}`
-  useEffect(()=>{
-    async function getStudentDetails(){
-      const res = await fetch(url)
-      const finalRes = await res.json()
-      setStudentDetails(finalRes)
-    }
-    async function getStudentResume(){
-      const resumeRes = await fetch(resumeUrl)
-      const jsonResume = await resumeRes.json()
-      const {studentResume} = jsonResume
-      setResume(studentResume)
-    }
-    getStudentDetails()
-    getStudentResume()
-  }, [])
-
-  console.log(resume)
-
-  const {Name, batch, Branch, Email} = studentDetails
-
   return (
     <div>
       <Nav3 />
+
       <section style={{ backgroundColor: "#fff" }}>
         <div class="container">
           <div class="row">
@@ -46,10 +19,10 @@ export default function Validate() {
                     class="rounded-circle img-fluid"
                     style={{ width: "150px" }}
                   />
-                  <h5 class="my-3">{Name}</h5>
+                  <h5 class="my-3">G. Roshan</h5>
                   <p class=" id text-muted mb-1">Bachelor of Technology</p>
-                  <p class="id text-muted mb-1">{Branch}</p>
-                  <p class="id text-muted mb-1">{batch}</p>
+                  <p class="id text-muted mb-1">CSE</p>
+                  <p class="id text-muted mb-1">2020 Batch</p>
                   <p class="id text-muted mb-4">AB+ Blood group</p>
                   <div class="d-flex justify-content-center mb-2">
                     <button type="button" class="btn btn-primary">
@@ -71,9 +44,11 @@ export default function Validate() {
                       <p class="mb-0">Full Name</p>
                     </div>
                     <div class="col-lg-5">
-                      <p class="text-muted mb-0">{Name}</p>
+                      <p class="text-muted mb-0">Ganthakora Roshan</p>
                     </div>
-                    
+                    <div class="col-lg-5">
+                      <p class="text-muted mb-0">G.Roshan</p>
+                    </div>
                     <div class="col-lg-2">
                       <a class="resume-link">Raise</a>
                     </div>
@@ -84,9 +59,11 @@ export default function Validate() {
                       <p class="mb-0">Email</p>
                     </div>
                     <div class="col-lg-5">
-                      <p class="text-muted mb-0">{Email}</p>
+                      <p class="text-muted mb-0">cs20b010@iittp.ac.in</p>
                     </div>
-                    
+                    <div class="col-lg-5">
+                      <p class="text-muted mb-0">cs20b010@iittp.ac.in</p>
+                    </div>
                     <div class="col-lg-2">
                       <a class="resume-link">Raise</a>
                     </div>

@@ -70,7 +70,3 @@ Content-Type:application/json
 {
   "message":"Hello!"
 }
-
-### 
-
-GET http://localhost:3007/studentsProfile/635e4a67f17a97afe03fe6f5
