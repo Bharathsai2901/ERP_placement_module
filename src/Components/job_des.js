@@ -22,7 +22,7 @@ console.log(companyDetails)
     const res = await fetch(url)
     const jsonData = await res.json()
     
-    const actualUrl = `/getAppliedDetails/${jsonData.companyName}/${jsonData.Jobtitle}`
+    const actualUrl = `/appliedStudent/${jsonData.companyName}/${jsonData.Jobtitle}`
     const result = await fetch(actualUrl)
     const partCompany = await result.json()
     setCompanyDetails(jsonData)

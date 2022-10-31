@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,7 +6,9 @@ import Button from "react-bootstrap/Button";
 // import "../styles/card.css";
 import { Outlet, Link } from "react-router-dom";
 
-export default function SingleCard() {
+export default function SingleCard(props) {
+  const {details} = props
+  const {Name, companyName} = details
   
 
   return (
@@ -15,7 +17,7 @@ export default function SingleCard() {
         <div className="col">
           <span className="Sector">CSE</span>
           <h5>
-            <a href="#">P. Bharat Sai</a>
+            <a href="#">{Name}</a>
           </h5>
           <ul>
             <li>
@@ -33,11 +35,14 @@ export default function SingleCard() {
                 data-pagespeed-url-hash="1931699050"
                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
               />
-              <p>Amazon India</p>
+              <p>{companyName}</p>
             </div>
           </div>
           <div className="Button-div">
-            <Link to="/validate">
+            <Link to = {{
+                  pathname: "/validate",
+                  search: `?Email=${details.Email}&_id=${details._id}`
+                }}>
               <Button className="Apply-button" variant="primary">
                 Validate
               </Button>
