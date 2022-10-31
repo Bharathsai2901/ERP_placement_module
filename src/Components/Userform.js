@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
-/*import axios from 'axios';
-import { saveAs } from 'file-saver';*/
-import Success from './Success';
-import Resume from './resume';
+import Success from './success';
+import Extras from './resume';
 
 class UserForm extends Component {
 
@@ -17,29 +14,6 @@ class UserForm extends Component {
         github: '',
         skills: '',
 
-        edu1_qualification: '',
-        edu1_school: '',
-        edu1_year: '',
-        edu1_percentage: '',
-
-        edu2_qualification: '',
-        edu2_school: '',
-        edu2_year: '',
-        edu2_percentage: '',
-
-        edu3_qualification: '',
-        edu3_school: '',
-        edu3_year: '',
-        edu3_percentage: '',
-
-        proj1_title: '',
-        proj1_link: '',
-        proj1_desc: '',
-
-        proj2_title: '',
-        proj2_link: '',
-        proj2_desc: '',
-
         exp1_org: '',
         exp1_pos: '',
         exp1_desc: '',
@@ -49,6 +23,24 @@ class UserForm extends Component {
         exp2_pos: '',
         exp2_desc: '',
         exp2_dur: '',
+
+        proj1_title: '',
+        proj1_link: '',
+        proj1_desc: '',
+
+        proj2_title: '',
+        proj2_link: '',
+        proj2_desc: '',
+
+        edu1_school: '',
+        edu1_year: '',
+        edu1_qualification: '',
+        edu1_desc: '',
+
+        edu2_school: '',
+        edu2_year: '',
+        edu2_qualification: '',
+        edu2_desc: '',
 
         extra_1: '',
         extra_2: '',
@@ -61,6 +53,8 @@ class UserForm extends Component {
 
     }
 
+    
+
     submitted = () => {
         const { status } = this.state;
         this.setState({
@@ -71,17 +65,18 @@ class UserForm extends Component {
 
 
     handleChange = ({ target: { value, name } }) => this.setState({ [name]: value })
-
     render() {
         const { step } = this.state;
+        
         switch (step) {
+            
             case 1:
 
                 return (
                     <div className="App pt-5 mt-5">
                         <div className="container col-lg-8 mx-auto text-center">
 
-                            <Resume
+                            <Extras
                                 values={this.state}
                                 submitted={this.submitted}
                                 handleChange={this.handleChange}
@@ -90,9 +85,7 @@ class UserForm extends Component {
                         <br />
                     </div>
                 );
-
             case 2:
-
                 return (
                     <div className="App pt-5 mt-5">
                         <div className="container col-lg-8 mx-auto text-center">

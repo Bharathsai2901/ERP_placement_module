@@ -7,15 +7,13 @@ export default function Review() {
 
   const [data, setData] = useState([])  
   
-useEffect(()=>{
-  async function studentData(){
-    const res = await fetch("/getStudents")
-    const dataFromBack = await res.json()
-    setData(dataFromBack)
-    console.log(dataFromBack)
-    }
-  studentData()
+useEffect(async ()=>{
+  const res = await fetch("/getAppliedDetails")
+  const dataFromBack = await res.json()
+  setData(dataFromBack)
+  console.log(data.length)
 }, []); 
+
 
  return (
    <div className="container card border-0">

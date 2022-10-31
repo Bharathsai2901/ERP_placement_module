@@ -61,13 +61,13 @@ export default function Profile(){
             }, 
             body:JSON.stringify({...postjob, companyLogo:companyLogo[0]})
         })
-        if(res.status === 201){
+       
             // window.alert("Details have been recorded!")
             setModalShow(true)
-        }
-        else{
-            console.log(res.status)
-        }
+        
+        // else{
+        //     console.log(res.status)
+        // }
     }
 
     return(
