@@ -1,7 +1,54 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import "../styles/job_des.css";
-export default function desc() {
+import {useLocation} from "react-router-dom"
+import getYear from 'date-fns/getYear'
+import getMonth from 'date-fns/getMonth'
+import getDate from 'date-fns/getDate'
+import split from 'split-string'
+import { Link } from "react-router-dom"
+import { type } from "@testing-library/user-event/dist/type";
+
+export default function Jobdes() {
+  const location = useLocation()
+  const singleCompanyId = new URLSearchParams(location.search).get('_id')
+  const applyUrl = `/apply?_id=${singleCompanyId}`
+  const [companyDetails, setCompanyDetails] = useState([])
+const [appliedStatus, setAppliedStatus] = useState(false)
+console.log(companyDetails)
+  useEffect(()=>{
+    async function fetchData() {
+      const url = `/uploadDetails?_id=${singleCompanyId}`
+    const res = await fetch(url)
+    const jsonData = await res.json()
+    
+    const actualUrl = `/getAppliedDetails/${jsonData.companyName}/${jsonData.Jobtitle}`
+    const result = await fetch(actualUrl)
+    const partCompany = await result.json()
+    setCompanyDetails(jsonData)
+    setAppliedStatus(partCompany)
+    }
+    fetchData()
+  }, [])
+  
+  const withDrawApp = ()=>{
+    async function removeUser(){
+      try{
+      let url = `/removeApp/${appliedStatus.Jobtitle}`
+      const finalRes = await fetch(url, {
+        method:"delete"
+      })
+        console.log(finalRes.status)
+      }
+      catch(e){
+        console.log(e.message)
+      }
+    }
+    removeUser()
+  }
+  const {companyLogo, Jobdescription, Jobtitle, Location, Openings, Salary, Skillsrequired, Type, Applybefore, companyName} = companyDetails
+  const myArr = split(`${Skillsrequired}`, { separator: ',' })
+
   return (
     <div>
       <div className="job-post-company pt-120 pb-120">
@@ -12,8 +59,9 @@ export default function desc() {
                 <div className="job-items">
                   <div className="company-img company-img-details">
                     <a href="#">
-                      <img className="company-logo"
-                        src="http://media.corporate-ir.net/media_files/IROL/17/176060/Oct18/Amazon%20logo.PNG"
+                      <img
+                        className="company-logo"
+                        src={companyLogo}
                         alt=""
                         data-pagespeed-url-hash="2733594701"
                         onload="pagespeed.CriticalImages.checkImageForCriticality(this);"
@@ -22,14 +70,14 @@ export default function desc() {
                   </div>
                   <div className="job-tittle">
                     <a href="#">
-                      <h4>Software developer Engineer</h4>
+                      <h4>{Jobtitle}</h4>
                     </a>
                     <ul>
                       <li>Product management</li>
                       <li>
-                        <i className="fas fa-map-marker-alt"></i>Hyderabad
+                        <i className="fas fa-map-marker-alt"></i>{Location}
                       </li>
-                      <li>70k-80k</li>
+                      <li>{Salary}</li>
                     </ul>
                   </div>
                 </div>
@@ -41,11 +89,7 @@ export default function desc() {
                     <h4>Job Description</h4>
                   </div>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    {Jobdescription}
                   </p>
                 </div>
                 <div className="post-details2  mb-50">
@@ -53,17 +97,7 @@ export default function desc() {
                     <h4>Skill(s) required</h4>
                   </div>
                   <ul>
-                    <li>System Software Development</li>
-                    <li>
-                      Understanding client requirements and creating front-end
-                      code in ReactJS
-                    </li>
-                    <li>
-                      Creating layouts using CSS libraries like Bootstrap,
-                      Bulma, and Tailwind
-                    </li>
-                    <li>Strong knowledge on software development life cycle</li>
-                    <li>Writing clean code</li>
+                    {myArr.map((eachItem)=><li key={eachItem}>{eachItem}</li>)}
                   </ul>
                 </div>
                 <div className="post-details2  mb-50">
@@ -94,26 +128,35 @@ export default function desc() {
                     Posted date : <span>22 Aug 2022</span>
                   </li>
                   <li>
-                    Location : <span>Hyderabad</span>
+                    Location : <span>{Location}</span>
                   </li>
                   <li>
-                    Vacancy : <span>10</span>
+                    Vacancy : <span>{Openings}</span>
                   </li>
                   <li>
-                    Job nature : <span>Full time</span>
+                    Job nature : <span>{Type}</span>
                   </li>
                   <li>
-                    Salary : <span>45LPA</span>
+                    Salary : <span>{Salary}</span>
                   </li>
                   <li>
-                    Apply before : <span>12 Sep 2022</span>
+                    Apply before : <span>{`${getYear(new Date(Applybefore))}/${getMonth(new Date(Applybefore))+1}/${getDate(new Date(Applybefore))}`}</span>
                   </li>
                 </ul>
                 <div className="apply-btn2">
                   <div className="Button-div">
-                    <Button href="/apply" className="Apply-button" variant="primary">
-                      Apply Now
-                    </Button>{" "}
+                    {!appliedStatus?
+                      <Button
+                        href={applyUrl}
+                        className="Apply-button"
+                        variant="primary">
+                        Apply Now
+                      </Button>
+                      :
+                    <div>
+                      <Button className = "btn btn-primary m-3" href={applyUrl}>Edit</Button> 
+                      <Button className = "btn btn-primary" onClick={withDrawApp}>withDraw</Button>
+                    </div>}
                   </div>
                 </div>
               </div>
@@ -121,20 +164,18 @@ export default function desc() {
                 <div className="small-section-tittle">
                   <h4>Company Information</h4>
                 </div>
-                <span><b className="cname">Amazon</b></span>
+                <span>
+                  <b className="cname">{companyName}</b>
+                </span>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took a galley of type and scrambled it to make a type
-                  specimen book.
+                  {Jobdescription}
                 </p>
                 <ul>
                   <li>
-                    Name: <span>Amazon </span>
+                    Name: <span>{companyName} </span>
                   </li>
                   <li>
-                    Web : <span> amazon.com</span>
+                    Web : <span> {companyName}.com</span>
                   </li>
                   <li>
                     Email: <span>bharatsaipadala@gmail.com</span>
@@ -146,5 +187,6 @@ export default function desc() {
         </div>
       </div>
     </div>
-  );
+  )
+  
 }

@@ -137,3 +137,15 @@ li {
     -webkit-transform: scale(1.03); /* Safari 3-8 */
     transform: scale(1.03); 
   }
+.warn_Msg{
+    color:red;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+.warn_Background{
+    background-color:#D3D3D3;
+}
+.iconStyle{
+    width:65px
+}

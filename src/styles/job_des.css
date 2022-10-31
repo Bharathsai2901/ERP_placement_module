@@ -202,3 +202,9 @@ li {
     height:80px;
     width:100px;
 }
+
+.job-items{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import "../home_style.css"
 
 function BasicExample() {
   return (
@@ -11,7 +10,7 @@ function BasicExample() {
       <Navbar.Brand href="/company-home">
             <img 
               src="https://hdstockimages.com/wp-content/plugins/image-downloader-custom/temp/HDStockImages_premium_RITSC6.jpg"
-              width="90"
+              width="60"
               height="60"
               className="d-inline-block align-top logo"
               alt="React Bootstrap logo"
@@ -21,8 +20,8 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" class="navmenu">
           <Nav className="me-auto" >
-            <Nav.Link href="/company-home" className="navitems">Home</Nav.Link>
-            <Nav.Link href="/Add-job"  className="navitems">Add-Job</Nav.Link>
+            <Nav.Link href="/staff-home" className="navitems">Home</Nav.Link>
+            <Nav.Link href="/stats"  className="navitems">Stats</Nav.Link>
             <Nav.Link href="/reviewapplication"  className="navitems">Review</Nav.Link>
             <Nav.Link href="/sendnotify" className="navitems">E-mail</Nav.Link>
             <Nav.Link href="/" className="navitems">Logout</Nav.Link>

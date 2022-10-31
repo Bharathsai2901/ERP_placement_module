@@ -5,16 +5,18 @@ import { Link } from "react-router-dom";
 export default function App(){
     return(
         <div>
-   <div class="page-wraper">
-      <div class="logo fadeIn animated"><img className="Logo" src="https://iittp.plumerp.co.in/prod/iittirupati/res/images/iittirupati-logo.png"  /></div>
-      <div class="welcome "> Welcome to IIT Tirupati E-Governance</div>
-      <form classNme="login-form" method="post">
+   <div className="page-wraper">
+      <div className="logo fadeIn animated"><img className="Logo" src="https://hdstockimages.com/wp-content/plugins/image-downloader-custom/temp/HDStockImages_premium_RITSC6.jpg"  /></div>
+      <div className="welcome "> Welcome to IIT Tirupati E-Governance</div>
+      <form className="login-form" method="post">
       <Link to="/Student-login">
-         <input class="btn-login" type="submit" id="ssubmit" name="ssubmit" value="Student Login" /><br />
+         <input className="btn-login" type="submit" id="ssubmit" name="ssubmit" value="Student Login" /><br />
          </Link>
-         <input class="btn-login" type="submit" id="fsubmit" name="ssubmit" value="Faculty / Staff Login" /><br />
+         <Link to = "/Staff-login">
+            <input className="btn-login" type="submit" id="fsubmit" name="ssubmit" value="Faculty / Staff Login" /><br />
+         </Link>
          <Link to="/Company-login">
-         <input class="btn-login" type="submit" id="fsubmit" name="ssubmit" value="Company Login" />
+         <input className="btn-login" type="submit" id="fsubmit" name="ssubmit" value="Company Login" />
          </Link>
       </form>
    </div>

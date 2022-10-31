@@ -10,6 +10,14 @@ const userSchema = new mongoose.Schema({
     type:String, 
     require:true
   },
+  companyName:{
+    type:String, 
+    require:true
+  },
+  Jobtitle:{
+    type:String, 
+    require:true
+  },
   availability:{
     type:String, 
     require:true
@@ -25,6 +33,10 @@ const userSchema = new mongoose.Schema({
   studentResume: {
     type:Array, 
     require:true
+  }, 
+  applied:{
+    type:Boolean, 
+    default:false
   }
 })
  

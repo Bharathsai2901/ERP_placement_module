@@ -1,28 +1,16 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import "../styles/card.css";
 import SingleCard from "./singlecard"
 
 
-import { useEffect, useState } from 'react'
+export default function Card(props) {
 
-
-export default function Dynamic() {
-
-    const [data, setData] = useState([])  
-    
-  useEffect(async ()=>{
-    const res = await fetch("/uploadDetails")
-    const dataFromBack = await res.json()
-    setData(dataFromBack)
-  }, []); 
+  const {companyDetails} = props    
 
    return (
      <div className="container-fluid card border-0">
        <div className="row">
-         {data.map((eachItem)=><SingleCard details = {eachItem}/>)}
+        {companyDetails.length === 0?<div className = "text-center">No Company Found!!</div>:companyDetails.map((eachItem)=><SingleCard details = {eachItem} key = {eachItem._id}/>)}
        </div>
      </div>
    );

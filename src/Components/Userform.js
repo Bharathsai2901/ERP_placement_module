@@ -85,9 +85,7 @@ class UserForm extends Component {
                         <br />
                     </div>
                 );
-
             case 2:
-
                 return (
                     <div className="App pt-5 mt-5">
                         <div className="container col-lg-8 mx-auto text-center">

@@ -1,0 +1,24 @@
+.validate-row{
+    padding:3px !important;
+}
+
+.line{
+    color: rgb(169, 169, 172) !important;
+}
+
+.resume-link{
+    text-decoration: none !important;
+    cursor: pointer;
+    color:#97222B;
+}
+.sp{
+    color:blue;
+}
+.approve{
+    margin-left:70%;
+}
+
+.id{
+    text-align:left;
+    margin-left: 2px;
+}

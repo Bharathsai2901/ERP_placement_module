@@ -2,14 +2,25 @@ POST http://localhost:3004/register
 Content-Type:application/json
 
 {
-  "Name":"SampathK", 
-  "Email":"student1234@gmail.com", 
-  "PhoneNo":"9876543211",
-  "Profession":"Dcotor", 
-  "password":"test2@gmail.com", 
-  "cPassword":"test2@gmail.com"
+  "Name":"Hiranmai", 
+  "Email":"hiranmai@gmail.com", 
+  "PhoneNo":"900000000",
+  "Profession":"civils", 
+  "password":"leader@gmail.com", 
+  "cPassword":"leader@gmail.com"
 } 
+
 ### 
+POST http://localhost:3007/addCompany
+Content-Type: application/json
+
+{
+  "email":"Indeed@gmail.com",
+  "password":"test8@gmail.com",
+  "name":"Indeed"
+}
+
+###
 
 POST http://localhost:3006/login
 Content-Type:application/json 
@@ -34,3 +45,28 @@ Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzBlNTcz
   "workDone":"Sufficient work required for the job"
 }
 
+### 
+
+POST http://localhost:3006/verifyCompany 
+Content-Type:application/json
+
+{
+  "email":"amazon@gmail.com", 
+  "password":"abcd@12"
+}
+
+### 
+
+GET http://localhost:3006/uploadDetails?_id=63214c822aa0852bd89828ab
+### 
+
+GET http://localhost:3007/getAppliedDetails/Amazon/teacher
+###
+
+
+POST http://localhost:3007/SendMessage 
+Content-Type:application/json 
+
+{
+  "message":"Hello!"
+}

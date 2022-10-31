@@ -1,19 +1,22 @@
 
 import React from 'react';
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Navbar from "./company-nav"
-import  { useEffect, useState } from 'react'
+import  { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyVerticallyCenteredModal from "./modal"
- import "../styles/profile.css"
-import toast, { Toaster } from 'react-hot-toast';
+import "../styles/profile.css"
+import storage from "../firebase"
+import {ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage"
+import { v4 } from "uuid"
+
 
 export default function Profile(){
 
     const [modalShow, setModalShow] = React.useState(false);
+    const [showMsg, setShowMsg] = useState(false)
+    const [spinner, setSpinner] = useState(false)
+    const [companyLogo, setCompanyLogo] = useState([])
 
     const [postjob, setpostjob] = useState({
         Jobtitle:"", 
@@ -26,31 +29,45 @@ export default function Profile(){
         Skillsrequired:"",
         Whocanapply:""
     })
-    const handleJobInput=(event)=>{
+    const handleJobInput=async (event)=>{
         let name, value 
         name = event.target.name
-        value = event.target.value
+        if(name === "browser"){
+            value = event.target.files[0]
+            setSpinner(true)
+            const imageRef = ref(storage, `companyLogo/${value.name + v4()}`);
+            const snapshot = await uploadBytes(imageRef, value)
+            getDownloadURL(snapshot.ref).then((url)=>{
+              setCompanyLogo((preState)=>[...preState, url])
+              console.log("Got File!")
+              setSpinner(false)
+              setShowMsg(true)
+            })
+          }
+          else{
+            value = event.target.value
+          }
 
         setpostjob({...postjob, [name]:value})
     }
     const Addjob = async (event) =>{
         event.preventDefault()
-        console.log(postjob)
+        
 
         const res = await fetch("/uploadDetails", {
             method:"post", 
             headers:{
                 "Content-Type":"application/json"
             }, 
-            body:JSON.stringify(postjob)
+            body:JSON.stringify({...postjob, companyLogo:companyLogo[0]})
         })
-        if(res.status === 201){
+       
             // window.alert("Details have been recorded!")
             setModalShow(true)
-        }
-        else{
-            console.log(res.status)
-        }
+        
+        // else{
+        //     console.log(res.status)
+        // }
     }
 
     return(
@@ -105,7 +122,7 @@ export default function Profile(){
                                 <div className="col">
                                         <div className="form-group">
                                             <label for="fname">Apply before</label>
-                                            <input id="fname" type="text" className="form-control" placeholder="Apply before" name = "Applybefore" value = {postjob.Applybefore} onChange = {handleJobInput} />
+                                            <input id="fname" type="date" className="form-control" placeholder="Apply before" name = "Applybefore" value = {postjob.Applybefore} onChange = {handleJobInput} />
                                         </div>
                                 </div>
                             </div>
@@ -131,26 +148,29 @@ export default function Profile(){
                             <div className="form-group">
                                 <label>Relevant Documents(if any)</label>
                                 <div className="dz-clickable media align-items-center" data-toggle="dropzone" data-dropzone-url="http://" data-dropzone-clickable=".dz-clickable" data-dropzone-files="[&quot;assets/images/account-add-photo.svg&quot;]">
-                                    <div className="dz-preview dz-file-preview dz-clickable mr-3">
-                                        <div className="avatar avatar-lg">
-                                            <img src="https://lema.frontted.com/assets/images/account-add-photo.svg" className="avatar-img rounded" alt="..." data-dz-thumbnail="" />
-                                        </div>
+                                    
+                                    <div className="media-body"> 
+                                        <label for = "uploadLogo" className = "btn btn-primary">
+                                            {!spinner?"Browser":<div class="text-center">
+                                                                    <div class="spinner-border" role="status">
+                                                                        <span class="sr-only"></span>
+                                                                    </div>
+                                                                </div>}
+                                        </label>
+                                        <input type = "file" id = "uploadLogo" style = {{display:'none'}} name = "browser" onChange={handleJobInput}/>
+                                        
                                     </div>
-                                    <div className="media-body">
-                                        <button className="btn btn-sm btn-primary dz-clickable">Browse</button>
-                                    </div>
+                                    {showMsg && <p>Got file!</p>}
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label for="desc2">Skills Required</label>
+                                <label for="desc2">Skills Required (e.g:html,css,..)</label>
                                 <textarea id="desc2" rows="4" className="form-control" placeholder="Skills required" name = "Skillsrequired" value = {postjob.Skillsrequired} onChange = {handleJobInput} ></textarea>
                             </div>
                             <div className="form-group">
-                                <label for="desc2">Who can apply</label>
+                                <label for="desc2">Who can apply(e.g:above cgpa8,graduated completed,..)</label>
                                 <textarea id="desc2" rows="4" className="form-control" placeholder="Who can apply" name = "Whocanapply" value = {postjob.Whocanapply} onChange = {handleJobInput}></textarea>
                             </div>
-                           
-                            
                         </div>
                     </div>
                 </div>

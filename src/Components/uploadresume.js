@@ -6,15 +6,13 @@ import Grid from "@material-ui/core/Grid";
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+
 export default function AppDetails(props) {
   const {details} = props
-  const {Name, workDone, internships, availability, studentResume} = details
+  const {Name, Jobtitle, workDone, internships, availability, studentResume} = details
   console.log(details)
     return (
-        <div>
-          <h4 style={{ padding:20,
-                textAlignVertical: 'center',
-                textAlign:'center'}}> Review Application</h4>
+        <div className = "p-2">
         <Card style={{
             // width: 1300,
             marginLeft: 40,
@@ -23,18 +21,33 @@ export default function AppDetails(props) {
         }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {Name}
+          Name of the Applicant: {Name}
+        </Typography>
+        <Typography gutterBottom variant="h5" component="div">
+          Role Applied For: {Jobtitle}
         </Typography>
       </CardContent>
       
       <CardActions>
       <Grid container spacing={2}>
+        <p style = {
+          {
+            color:"blue"
+          }
+        }>Student Experience Details:</p>
+        <div>
+
       <Button size="small">Applicant Work:{workDone}</Button>
         <Button size="small">Availaibility of Applicant:{availability}</Button>
         <Button size="small">Internships done by Applicant:{internships}</Button>
+        </div>
         </Grid>
         <Grid container justify="flex-end">
-          <img src = {studentResume[0]} alt = "student Resume" className = "w-50 h-100"/>
+        <a href={studentResume[0]} target="_blank" rel="noreferrer">
+          <div className = "btn btn-outline-dark h-60">
+            <p>Student Resume</p>
+          </div>
+        </a>
         </Grid>
       </CardActions>
     </Card>

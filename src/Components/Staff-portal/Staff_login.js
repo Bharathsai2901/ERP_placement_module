@@ -1,6 +1,6 @@
 import React from "react";
-import "./styles/student_login_new.css";
-import "./styles/login_erp.css";
+// import "./styles/student_login_new.css";
+// import "./styles/login_erp.css";
 import { useState} from "react"
 import {useNavigate} from "react-router-dom"
 
@@ -46,7 +46,7 @@ export default function Login() {
       setMsg(false)
     }
     else{
-      navigate("/student-home")
+      navigate("/staff-home")
     }
   }catch(err){
     console.log(err.message)
@@ -74,7 +74,7 @@ export default function Login() {
           {/* <div className="title">Student Login</div> */}
           <div class="logo fadeIn animated"><img className="Logo" src="https://hdstockimages.com/wp-content/plugins/image-downloader-custom/temp/HDStockImages_premium_RITSC6.jpg"  /></div>
           {/* <div class="welcome "> Welcome to IIT Tirupati E-Governance</div> */}
-          <div class="welcome "> Welcome to Student login</div>
+          <div class="welcome "> Welcome to Staff login</div>
           <form action="#">
             <div className="field">
               <input type="text" onChange = {handleInput} name = "Email" value = {user.Email} required />
@@ -90,7 +90,7 @@ export default function Login() {
                 <label for="remember-me">Remember me</label>
               </div>
               <div className="pass-link">
-                <a href="/forgotpassword">Forgot password?</a>
+                <a href="#">Forgot password?</a>
               </div>
             </div>
             <div>

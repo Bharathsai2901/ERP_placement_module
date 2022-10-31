@@ -2,16 +2,40 @@ import React, { useEffect } from "react";
 import { useState } from 'react';
 import "../styles/apply.css";
 import storage from "../firebase"
-import {ref, uploadBytes, listAll, getDownloadURL} from "firebase/storage"
+import {ref, uploadBytes, getDownloadURL} from "firebase/storage"
 import { v4 } from "uuid"
+import { useLocation } from "react-router-dom";
+import { ImCross } from "react-icons/im";
+import MyVerticallyCenteredModal from "./modal"
 
 export default function Form() {
+  const [modalShow, setModalShow] = React.useState(false);
+
+  const location = useLocation()
+  const companyId = new URLSearchParams(location.search).get('_id')
+  const [updateCompany, setUpdateCompany] = useState()
+
+  useEffect(()=>{
+    async function fetchData() {
+    const url = `/uploadDetails?_id=${companyId}`
+    const res = await fetch(url)
+    const jsonData = await res.json()
+    setUpdateCompany(jsonData)
+    }
+    fetchData()
+  }, [])
+  
+
   const [open, setOpen] = React.useState(false);
   
   const handleToClose = (event, reason) => {
     if ("clickaway" == reason) return;
     setOpen(false);
   };
+
+  const updateFile = ()=>{
+    
+  }
   
   const handleClickEvent = () => {
     setOpen(true);
@@ -28,6 +52,7 @@ export default function Form() {
   const [updatedResume, setUpdatedResume] = useState([])
 
   const [unlockBtn, setUnlockBtn] = useState(false)
+  const [showWarn, setShowWarn] = useState(false)
 
   const handleInput = async (event)=>{
     let name, value 
@@ -50,16 +75,17 @@ export default function Form() {
 
   const submitResume = async (event)=>{
     event.preventDefault()
-    const {availability, internships, workDone} = studentDetails
+    const { availability, internships, workDone} = studentDetails
     try{
     const res = await fetch("/uploadResume", {
       method:"post", 
       headers:{
         "Content-Type":"application/json"
       }, 
-      body:JSON.stringify({availability, internships, workDone, studentResume:updatedResume})
+      body:JSON.stringify({companyName:updateCompany.companyName, Jobtitle:updateCompany.Jobtitle, availability, internships, workDone, studentResume:updatedResume})
     })
-    console.log(res.status)
+    console.log(updatedResume)
+    setModalShow(true)
   }
   catch(err){
     console.log(err.message)
@@ -84,9 +110,20 @@ export default function Form() {
           </div> 
             <div class="form-group">
             <label className="form-label" ><p className="ques">Please upload your resume here</p></label><br/>
-            <input className="input" type="file" name = "fileUpload" onChange = {handleInput}/><br/><br/>
+            
+            <div>
+              <input className="input" type="file" name = "fileUpload" onChange = {handleInput} id = "uploadFile"/>
+              <ImCross className = "m-1" onClick = {updateFile}/>
+            </div>
+            <br/><br/>
 
-            {unlockBtn && <button type="submit" class="btn btn-success"  onClick = {submitResume}>Upload and submit</button>}
+            {!unlockBtn ? <button onClick = {submitResume} className = "btn btn-secondary" disabled>Upload and submit</button>: <button type="submit" class="btn btn-success"  onClick = {submitResume}>Upload and submit</button>}
+            <MyVerticallyCenteredModal
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                    text="Applied successfully"
+                    //href="/apply"
+                />
             </div>
             <div >
             </div>

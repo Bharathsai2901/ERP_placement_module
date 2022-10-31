@@ -1,7 +1,12 @@
 
 const mongoose = require("mongoose")
 
+
 const jobSchema = new mongoose.Schema({
+  companyName:{
+    type:String, 
+    require:true
+  },
   Jobtitle:{
     type:String, 
     require:true
@@ -19,11 +24,11 @@ const jobSchema = new mongoose.Schema({
     require:true
   }, 
   Openings:{
-    type:String,
+    type:Number,
     require:true
   },
   Applybefore:{
-    type:String,
+    type:Date,
     require:true
   },
   Jobdescription:{
@@ -37,9 +42,15 @@ const jobSchema = new mongoose.Schema({
   Whocanapply:{
     type:String, 
     require:true
+  }, 
+  companyLogo:{
+    type:Array,
+    require:true
   }
 })
  
+
 const studentDetails = mongoose.model("jobDetails", jobSchema)
+
 
 module.exports = studentDetails

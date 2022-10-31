@@ -9,37 +9,36 @@ export default class Resume extends Component {
         e.preventDefault();
         this.props.submitted();
         const data = this.props.values;
-
-
         axios.post('/create-pdf', data)
             .then(() => axios.get('fetch-pdf', { responseType: 'blob' }))
             .then((res) => {
                 const pdfBlob = new Blob([res.data], { type: 'application/pdf' });
-
+                console.log(pdfBlob)
                 saveAs(pdfBlob, 'Resume.pdf');
             });
-
         e.target.reset();
-
+    }
+    getDetails = ()=>{
+        console.log(ref.current)  
     }
     render() {
         const { values, handleChange } = this.props;
+        
         return (
             <div className="card animated fadeInLeft">
                 <form onSubmit={this.formSubmit}>
-                <div className="card-body">
-
-<h3 className="card-title">Personal Info</h3>
-<hr />
-</div>
-<div className="row col-lg-10 mx-auto">
+                    <div className="card-body">
+                        <h3 className="card-title">Personal Info</h3>
+                        <hr/>
+                    </div>
+                    <div className="row col-lg-10 mx-auto">
                         <div className="col-lg-4 text-left">
                             <label>Name*</label>
-                            <input type="text" name="name" className="form-control" onChange={handleChange} defaultValue={values.status === 1 ? '' : values.name} required />
+                            <input type="text" name="name" className="form-control" onChange={handleChange} defaultValue={values.status === 1 ? '' : values.name} required/>
                         </div>
                         <div className="col-lg-4 text-left">
                             <label>Email*</label>
-                            <input type="email" name="email" className="form-control" onChange={handleChange}  defaultValue={values.status === 1 ? '' : values.email} required />
+                            <input type="email" name="email" className="form-control" onChange={handleChange}  defaultValue={values.status === 1 ? '' : values.email} required/>
                         </div>
                         <div className="col-lg-4 text-left">
                             <label>Mobile*</label>
@@ -107,11 +106,10 @@ export default class Resume extends Component {
                         </div>
                         <div className="card-body">
                         <div className="card-body">
-
-<h3 className="card-title">Projects</h3>
-<hr />
-</div>
-<div className="row col-lg-10 mx-auto">
+                            <h3 className="card-title">Projects</h3>
+                            <hr />
+                        </div>
+                    <div className="row col-lg-10 mx-auto">
                         <div className="col-lg-12 text-left">
                             <h3><b><i className=""></i>1</b></h3>
                         </div>
@@ -131,11 +129,7 @@ export default class Resume extends Component {
                             <input type="text" name="proj1_desc" className="form-control" defaultValue={values.status === 1 ? '' : values.proj1_desc} onChange={handleChange} required />
                         </div>
                     </div>
-
                     <br />
-
-                    
-
                     <div className="row col-lg-10 mx-auto">
                         <div className="col-lg-12 text-left">
                             <h3><b><i className=""></i>2</b></h3>
@@ -215,10 +209,9 @@ export default class Resume extends Component {
                             </div>
                             <br/>
                             <div className="card-body">
-
-<h3 className="card-title">Extras</h3>
-<hr />
-</div>
+                                <h3 className="card-title">Extras</h3>
+                                <hr />
+                            </div>
                     <div className="row col-lg-10 mx-auto">
 
                         <div className="col-lg-6 md-form">
@@ -237,20 +230,13 @@ export default class Resume extends Component {
                             <input type="text" name="extra_3" id="extra_3" className="form-control" defaultValue={values.status === 1 ? '' : values.extra_3} onChange={handleChange} required />
                             <label htmlFor="extra_3">Activity/Achievement</label>
                         </div>
-                        <div className="col-lg-6 md-form">
-                            <input type="text" name="extra_4" id="extra_4" className="form-control" defaultValue={values.status === 1 ? '' : values.extra_4} onChange={handleChange} required />
-                            <label htmlFor="extra_4">Activity/Achievement</label>
-                        </div>
                     </div>
                     <br />
 
                     <div className="container text-center">
-                    <Pdf targetRef={ref} filename="resume.pdf">
-                    {({ toPdf }) => <button className="btn btn-info" onClick={toPdf}>Generate Pdf</button>}
-                    </Pdf> 
-                    <div ref={ref}>
-                        Download
-                    </div>
+                        <Pdf targetRef={ref} filename="resume.pdf">
+                            {({ toPdf }) => <button className="btn btn-info" onClick={toPdf} ref = {ref}>Generate Pdf</button>}
+                        </Pdf>
                     </div>
                     <br />
                 </form>

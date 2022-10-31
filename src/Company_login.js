@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom"
 export default function Login() {
   const navigate = useNavigate()
   const [user, setUser] = useState({
-    Email:"", 
+    email:"", 
     password:""
   })
 
@@ -28,16 +28,16 @@ export default function Login() {
   const logIn = async (event)=>{
     setInitSpinner(true)
     event.preventDefault()
-    const {Email, password} = user 
+    const {email, password} = user 
 
     try{
-    const result = await fetch("/login", {
+    const result = await fetch("/verifyCompany", {
       method:"post", 
       headers:{
         "Content-Type":"application/json"
       },
       body:JSON.stringify({
-        Email, password
+        email, password
       })
     })
     setInitSpinner(false)
@@ -72,12 +72,12 @@ export default function Login() {
       <div className="wrapper">
         <div className="wrap">
           {/* <div className="title">Student Login</div> */}
-          <div class="logo fadeIn animated"><img className="Logo" src="https://iittp.plumerp.co.in/prod/iittirupati/res/images/iittirupati-logo.png"  /></div>
+          <div class="logo fadeIn animated"><img className="Logo" src="https://hdstockimages.com/wp-content/plugins/image-downloader-custom/temp/HDStockImages_premium_RITSC6.jpg"  /></div>
           {/* <div class="welcome "> Welcome to IIT Tirupati E-Governance</div> */}
           <div class="welcome "> Welcome to Company login</div>
           <form action="#">
             <div className="field">
-              <input type="text" onChange = {handleInput} name = "Email" value = {user.Email} required />
+              <input type="text" onChange = {handleInput} name = "email" value = {user.email} required />
               <label>Email Address</label>
             </div>
             <div className="field">
