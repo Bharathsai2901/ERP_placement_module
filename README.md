@@ -68,3 +68,71 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+Download the zip folder and extract it.
+Open folder in Vscode.
+Create a New terminal and split it into two.
+In one terminal type the following commands
+- cd backend
+- node app.js
+In seconde terminal type “npm start”
+Web page will open in default browser 
+Login details for login :
+
+ Student login -
+
+Email : test123@gmail.com
+Password : abcd@123
+
+Email : student123@gmail.com
+Password : test1@gmail.com
+
+Email : student1234@gmail.com
+Password : test2@gmail.com
+
+Email : Akshara@gmail.com
+Password : akka@gmail.com
+
+Email : anime@gmail.com
+Password : roshan@gmail.com
+
+Email : BharathSai@gmail.com
+Password : PSPK@gmail.com
+
+Email : hiranmai@gmail.com
+Password : leader@gmail.com
+
+Staff login :
+
+Email : test123@gmail.com
+Password : abcd@123
+
+Company login :
+
+email: deloitte@gamil.com
+password: test1@gmail.com
+
+email: Amazon@gmail.com
+password: test2@gmail.com
+
+email: filpkart@gmail.com
+password: test3@gmail.com
+
+email: sprinklr@gmail.com
+password : test4@gmail.com 
+
+email: adobe@gmail.com 
+password: test5@gmail.com 
+
+email:IBM@gmail.com 
+password : test6@gmail.com 
+
+email :Capgemini@gmail.com 
+password: test7@gmail.com 
+
+email: Indeed@gmail.com
+password : test8@gmail.com
+
